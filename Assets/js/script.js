@@ -3,6 +3,7 @@
 
 
         // This function should fire with init using current month and day, and it should fire when the user inputs data using date picker for the selected month and day.
+
 function getWikiData(month, day) {
     var monthCheck = month;
     var dayCheck = day;
@@ -29,7 +30,7 @@ function getNYTData(month, day, year) {
     var monthCheck = month;
     var dayCheck = day;
     var yearCheck = year;
-    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/2019-01-20/hardcover-fiction.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
+    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/${yearCheck}-${monthCheck}-${dayCheck}/hardcover-fiction.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
 
     fetch (NYTurl)
         .then(function (response) {
@@ -50,8 +51,10 @@ function getNYTData(month, day, year) {
 // }
 
 // Fires when page loads, gets wikidata for the current day
+
 function init() {
     let today = new Date();
+    console.log(today);
     let currentmonth = today.getMonth() + 1;
     let currentday = today.getDate();
     let currentyear = today.getFullYear();
