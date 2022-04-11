@@ -26,11 +26,8 @@ function getWikiData(month, day) {
    });
 }
 
-function getNYTData(month, day, year) {
-    var monthCheck = month;
-    var dayCheck = day;
-    var yearCheck = year;
-    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/${yearCheck}-${monthCheck}-${dayCheck}/hardcover-fiction.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
+function getNYTData(date) {
+    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/${date}/hardcover-fiction.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
 
     fetch (NYTurl)
         .then(function (response) {
@@ -57,14 +54,12 @@ function init() {
     console.log(today);
     let currentmonth = today.getMonth() + 1;
     let currentday = today.getDate();
-    let currentyear = today.getFullYear();
-    console.log(currentyear);
+    let fullDate = moment().format("YYYY-MM-DD");
     getWikiData(currentmonth, currentday);
-    getNYTData(currentmonth, currentday, currentyear);
+    getNYTData(fullDate);
 }
 
 init();
-
 // Event Listeners
 // Not ready, doesn't have datepicker element on page yet
 // placeholderdateinputEl.addEventListenter("submit", dateSelectionHandler);
