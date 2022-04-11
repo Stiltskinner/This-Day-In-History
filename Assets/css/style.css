@@ -1,0 +1,35 @@
+* {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+    margin: 100 auto;
+    background-color: #E5D1CA;
+}
+
+header {
+    width: 100%;
+}
+
+.content-card-borders {
+    display:inline-block;
+    border-style: solid;
+    margin: 0 auto;
+    background-color: #2A3245;
+    border-radius: 15px;
+    border-color: #822B34;
+    border-width: 20px;
+    color: white;
+    padding: 20px;
+}
+
+.content-row {
+    display: inline-block;
+}
+
+.content-card {
+    display: flexbox;
+    width: 45%;
+    padding: 20px;
+    flex-direction: row;
+}
