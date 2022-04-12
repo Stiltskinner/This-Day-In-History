@@ -63,7 +63,7 @@ function dateSubmitHandler(event) {
 //grabs daily death info from wikimedia
 function dailyDeath(data) {
     console.log(data)
-    var ifBox = document.querySelector('.death-box')
+    var ifBox = document.querySelector('#death-box')
     if (ifBox) {
         ifBox.remove();
     }
