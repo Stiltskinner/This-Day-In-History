@@ -29,12 +29,13 @@ header {
     display: flex;
     justify-content:left ;
     width: 98%;
+    min-width: 98%;
     box-sizing: border-box;
+    max-height: 40vh;
 }
 
 .content-card-borders {
     border-style: solid;
-    /* margin: 0 auto; */
     background-color: #2A3245;
     border-radius: 20px;
     border-color: #822B34;
@@ -45,17 +46,23 @@ header {
 
 .content-row {
     width: 100%;
-    flex-wrap: nowrap;
     display: inline-block;
+    flex-wrap: wrap;
     padding-top: 10px;
     justify-content: space-between;
     flex-direction: row;
+    min-width: 100%;
+    position: relative;
+    max-height: 40vh;
 }
 
 .content-card {
-    display: inline-block;
+    display: block;
     justify-content: space-evenly;
     width: 45%;
     padding: 20px;
     flex-wrap: wrap;
+    position: relative;
+    max-height: 40vh;
+    overflow: scroll;
 }
