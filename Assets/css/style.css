@@ -15,13 +15,14 @@ html {
 
 body {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     background-color: #e5d7ca;
     margin: 0;
     justify-content: center;
     padding-top: 1%;
     background-position: center;
-    background-size: cover;
+    /* background-size: cover; */
     /* background-repeat: no-repeat; */
 }
 
@@ -65,4 +66,8 @@ header {
     position: relative;
     max-height: 40vh;
     overflow: scroll;
+}
+
+#wikimedia-cards {
+    display: flex;
 }
