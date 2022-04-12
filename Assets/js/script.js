@@ -5,9 +5,7 @@
         // This function should fire with init using current month and day, and it should fire when the user inputs data using date picker for the selected month and day.
 
 function getWikiData(month, day) {
-    var monthCheck = month;
-    var dayCheck = day;
-    let Wikiurl = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${monthCheck}/${dayCheck}`;
+    let Wikiurl = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`;
 
     fetch (Wikiurl, 
         {
