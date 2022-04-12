@@ -50,13 +50,16 @@ function getNYTData(date) {
 // Fires when page loads, gets wikidata for the current day
 
 $(function() {
-    $( "#date-picker" ).datepicker();
+    $( "#date-picker" ).datepicker({dateFormat: "yy-mm-dd"});
       
  });
+
  function dateSubmitHandler(event){
      event.preventDefault();
     var a = $( "#date-picker" ).datepicker("getDate");
     console.log(a)
+    var dateInput = datePicker.value;
+    console.log(dateInput);
  }
 
 
