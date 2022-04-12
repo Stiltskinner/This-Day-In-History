@@ -29,7 +29,8 @@
         </div>
 
         <form id="date-picker-form">
-          <input type="text" id="date-picker"></input>
+          <!-- input needs to be ready only because the api url needs the exact format that datepicker generates -->
+          <input type="text" id="date-picker" readonly></input>
           <button>Submit</button>
         </form>
       </section>

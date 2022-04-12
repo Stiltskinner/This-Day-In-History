@@ -39,30 +39,27 @@ function getNYTData(date) {
         });
 }
 
-// Need to know what date picker input looks like to set up month and day variables
-
-// function dateSelectionHandler(event) {
-//     event.preventDefault();
-
-//     getWikiData(month, day);
-// }
-
-// Fires when page loads, gets wikidata for the current day
-
+// Sets up the datepicker element and formats it, prevents user from picking a date after current date
 $(function() {
-    $( "#date-picker" ).datepicker({dateFormat: "yy-mm-dd"});
+    $( "#date-picker" ).datepicker({
+        dateFormat: "yy-mm-dd",
+        maxDate: "+0d"    
+    });
       
  });
 
+//  Fires when the user presses submit after selecting a date. It calls get functions for api data for the selected date from NYT and wikimedia
  function dateSubmitHandler(event){
      event.preventDefault();
-    var a = $( "#date-picker" ).datepicker("getDate");
-    console.log(a)
     var dateInput = datePicker.value;
-    console.log(dateInput);
+    var dateArray = dateInput.split('-', 3);
+    var month = dateArray[1];
+    var day = dateArray[2];
+    getNYTData(dateInput);
+    getWikiData(month, day);
  }
 
-
+// Fires when the page loads to get data for current date
 function init() {
     let today = new Date();
     let currentmonth = today.getMonth() + 1;
@@ -73,8 +70,7 @@ function init() {
 }
 
 init();
-// Event Listeners
-// Not ready, doesn't have datepicker element on page yet
-// placeholderdateinputEl.addEventListenter("submit", dateSelectionHandler);
 
+// Event Listeners
+// Fires when the user submits the date picker
 datePickerForm.addEventListener("submit", dateSubmitHandler);
