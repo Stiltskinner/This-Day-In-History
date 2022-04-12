@@ -1,13 +1,13 @@
 // Example variable that pulls object data from wikimedia api
 // var trivBirth = data.births.0.text;
-
+var datePicker = document.querySelector('#date-picker');
+var datePickerForm = document.querySelector('#date-picker-form');
+var selectedDate;
 
         // This function should fire with init using current month and day, and it should fire when the user inputs data using date picker for the selected month and day.
 
 function getWikiData(month, day) {
-    var monthCheck = month;
-    var dayCheck = day;
-    let Wikiurl = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${monthCheck}/${dayCheck}`;
+    let Wikiurl = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`;
 
     fetch (Wikiurl, 
         {
@@ -49,9 +49,19 @@ function getNYTData(date) {
 
 // Fires when page loads, gets wikidata for the current day
 
+$(function() {
+    $( "#date-picker" ).datepicker();
+      
+ });
+ function dateSubmitHandler(event){
+     event.preventDefault();
+    var a = $( "#date-picker" ).datepicker("getDate");
+    console.log(a)
+ }
+
+
 function init() {
     let today = new Date();
-    console.log(today);
     let currentmonth = today.getMonth() + 1;
     let currentday = today.getDate();
     let fullDate = moment().format("YYYY-MM-DD");
@@ -63,3 +73,5 @@ init();
 // Event Listeners
 // Not ready, doesn't have datepicker element on page yet
 // placeholderdateinputEl.addEventListenter("submit", dateSelectionHandler);
+
+datePickerForm.addEventListener("submit", dateSubmitHandler);
