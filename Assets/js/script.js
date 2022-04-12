@@ -1,6 +1,8 @@
 // Example variable that pulls object data from wikimedia api
 // var trivBirth = data.births.0.text;
-
+var datePicker = document.querySelector('#date-picker');
+var datePickerForm = document.querySelector('#date-picker-form');
+var selectedDate;
 
         // This function should fire with init using current month and day, and it should fire when the user inputs data using date picker for the selected month and day.
 
@@ -36,15 +38,25 @@ function getNYTData(date) {
         });
 }
 
-// Need to know what date picker input looks like to set up month and day variables
+// Sets up the datepicker element and formats it, prevents user from picking a date after current date
+$(function() {
+    $( "#date-picker" ).datepicker({
+        dateFormat: "yy-mm-dd",
+        maxDate: "+0d"    
+    });
+      
+ });
 
-// function dateSelectionHandler(event) {
-//     event.preventDefault();
-
-//     getWikiData(month, day);
-// }
-
-// Fires when page loads, gets wikidata for the current day
+//  Fires when the user presses submit after selecting a date. It calls get functions for api data for the selected date from NYT and wikimedia
+ function dateSubmitHandler(event){
+     event.preventDefault();
+    var dateInput = datePicker.value;
+    var dateArray = dateInput.split('-', 3);
+    var month = dateArray[1];
+    var day = dateArray[2];
+    getNYTData(dateInput);
+    getWikiData(month, day);
+ }
 
 //grabs daily death info from wikimedia
 function dailyDeath(data) {
@@ -78,7 +90,6 @@ function dailyDeath(data) {
 
 function init() {
     let today = new Date();
-    console.log(today);
     let currentmonth = today.getMonth() + 1;
     let currentday = today.getDate();
     let fullDate = moment().format("YYYY-MM-DD");
@@ -87,6 +98,7 @@ function init() {
 }
 
 init();
+
 // Event Listeners
-// Not ready, doesn't have datepicker element on page yet
-// placeholderdateinputEl.addEventListenter("submit", dateSelectionHandler);
+// Fires when the user submits the date picker
+datePickerForm.addEventListener("submit", dateSubmitHandler);
