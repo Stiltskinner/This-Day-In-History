@@ -63,6 +63,10 @@ function dateSubmitHandler(event) {
 //grabs daily death info from wikimedia
 function dailyDeath(data) {
     console.log(data)
+    var ifBox = document.querySelector('#death-box')
+    if (ifBox){
+        ifBox.remove();
+        } 
     var randomizer = Math.floor(Math.random() * 100);
     var accessDeath = data.deaths[randomizer];
     var nameOfDeceased = accessDeath.pages[0].displaytitle;
@@ -77,6 +81,7 @@ function dailyDeath(data) {
     //creates elements based on the data about the daily death
     var deathBox = document.querySelector('.death-box')
     var box = document.createElement('div')
+    box.setAttribute('id','death-box')
     box.setAttribute('class', 'box content-card-borders content-card')
     deathBox.append(box)
     var name = document.createElement('h2')
