@@ -67,7 +67,7 @@ function dateSubmitHandler(event) {
 
 //grabs daily death info from wikimedia
 function dailyDeath(data) {
-    var ifBox = document.querySelector('#death-box')
+    var ifBox = document.querySelector('#death-box-content')
     if (ifBox) {
         ifBox.remove();
     }
@@ -84,10 +84,9 @@ function dailyDeath(data) {
 
     //creates elements based on the data about the daily death
     var deathBox = document.querySelector('#death-box')
-    console.log(deathBox);
     // div element to hold died on this day data
     var box = document.createElement('div')
-    box.setAttribute('id', 'death-box')
+    box.setAttribute('id', 'death-box-content')
     box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
     // "Daily Death" title element
@@ -120,7 +119,7 @@ function dailyDeath(data) {
 // grabs daily birth data from wikimedia
 function dailyBirth(data) {
     console.log(data)
-    var ifBox = document.querySelector('#birth-box')
+    var ifBox = document.querySelector('#birth-box-content')
     if (ifBox) {
         ifBox.remove();
     }
@@ -139,7 +138,7 @@ function dailyBirth(data) {
     var birthBox = document.querySelector('#birth-box')
     // div for born on this day data
     var box = document.createElement('div')
-    box.setAttribute("id", "birth-box")
+    box.setAttribute("id", "birth-box-content")
     box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
     // title for daily birth
@@ -172,7 +171,7 @@ function dailyBirth(data) {
 // HOLIDAY BOX contains holidays happening today around the world
 function holiday(data) {
     console.log(data)
-    var ifBox = document.querySelector('#holidays')
+    var ifBox = document.querySelector('#holiday-content')
     if (ifBox) {
         ifBox.remove();
     }
@@ -189,11 +188,11 @@ function holiday(data) {
     var linkOfHoliday = accessHoliday.pages[0].content_urls.desktop.page;
 
     //creates elements based on the data about todays holiday
-    var holidayBox = document.querySelector('.holiday-box')
+    var holidayBox = document.querySelector('#holiday-box')
     console.log(holidayBox)
     // div for holiday data
     var box = document.createElement('div')
-    box.setAttribute("id", "holidays")
+    box.setAttribute("id", "holiday-content")
     box.setAttribute('class', 'content-card-borders content-card')
     holidayBox.append(box)
     // title for holiday
@@ -226,7 +225,7 @@ function holiday(data) {
 // events in history box! stores data in variables to be used in generated elements
 function events(data) {
     console.log(data)
-    var ifBox = document.querySelector('#events')
+    var ifBox = document.querySelector('#event-content')
     if (ifBox) {
         ifBox.remove();
     }
@@ -243,10 +242,10 @@ function events(data) {
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
 
-    var eventBox = document.querySelector('.event-box')
+    var eventBox = document.querySelector('#event-box')
     // div for events on this day data
     var box = document.createElement('div')
-    box.setAttribute("id", "events")
+    box.setAttribute("id", "event-content")
     box.setAttribute('class', 'content-card-borders content-card')
     eventBox.append(box)
     // title for event
