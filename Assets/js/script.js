@@ -106,16 +106,16 @@ function dailyDeath(data) {
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class','')
     box.append(contentDiv)
-    // description of deceased on this day
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfDeceased;
-    contentDiv.append(description)
     // image of the deceased
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfDeceasedSrc;
     contentDiv.append(image)
+    // description of deceased on this day
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfDeceased;
+    contentDiv.append(description)
     // link to wikipedia page the deceased on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfDeceased)
@@ -166,16 +166,16 @@ function dailyBirth(data) {
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class','')
     box.append(contentDiv)
-    // description of person born on this day
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfBorn;
-    contentDiv.append(description)
     // image of person born on this day
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfBornSrc;
     contentDiv.append(image)
+    // description of person born on this day
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfBorn;
+    contentDiv.append(description)
     // link to wikipedia page for person born on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfBorn)
@@ -228,16 +228,16 @@ function holiday(data) {
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class','')
     box.append(contentDiv)
-    // description of holiday
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfHoliday;
-    contentDiv.append(description);
     // image of holiday
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfHolidaySrc;
     contentDiv.append(image)
+    // description of holiday
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfHoliday;
+    contentDiv.append(description);
     // link to holiday wikipedia page
     var link = document.createElement('a')
     link.setAttribute('href', linkOfHoliday)
@@ -288,16 +288,16 @@ function events(data) {
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class','')
     box.append(contentDiv)
-    // description of event
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfEvent;
-    contentDiv.append(description);
     // image of event
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfEventSrc;
     contentDiv.append(image)
+    // description of event
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfEvent;
+    contentDiv.append(description);
     // link to wikipedia page for event
     var link = document.createElement('a')
     link.setAttribute('href', linkOfEvent)
