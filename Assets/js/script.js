@@ -32,8 +32,7 @@ function getWikiData(month, day) {
 }
 
 function getNYTData(date) {
-    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/overview/${date}.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
-
+    var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/full-overview.json?published_date=${date}&api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
     fetch(NYTurl)
         .then(function (response) {
             if (response.ok) {
@@ -276,13 +275,11 @@ function events(data) {
 }
 
 function displayNYT(data) {
-    var ifFictionBox = document.querySelector('#fic-sec')
-    var ifNfictionBox = document.querySelector('#non-fic-sec')
+    var ifFictionBox = document.querySelector('#fic-sec');
+    var ifNFictionBox = document.querySelector('#non-fic-sec');
     if (ifFictionBox) {
-        fictionBox.remove();
-    }
-    if (ifNfictionBox) {
-        nfictionBox.remove();
+        ifFictionBox.remove();
+        ifNFictionBox.remove();
     }
     // Desired data for bestelling combined ebook and print fiction
     var fictionTitle = data.results.lists[0].books[0].title;
@@ -296,6 +293,7 @@ function displayNYT(data) {
     var nfictionImage = data.results.lists[1].books[0].book_image;
     var nfictionDescription = data.results.lists[1].books[0].description;
     var nfictionURL = data.results.lists[1].books[0].amazon_product_url;
+    console.log(fictionTitle);
     // Create container elements for each type of book
     var fictionBox = document.createElement('div');
     var nfictionBox = document.createElement('div');
