@@ -3,6 +3,8 @@
 var datePicker = document.querySelector('#date-picker');
 var datePickerForm = document.querySelector('#date-picker-form');
 var selectedDate;
+// nytBox is a placeholder div that serves as parent element for everything created in NYTDisplay function
+var nytBox = document.querySelector("#NYT-box");
 
         // This function should fire with init using current month and day, and it should fire when the user inputs data using date picker for the selected month and day.
 
@@ -26,13 +28,14 @@ function getWikiData(month, day) {
 }
 
 function getNYTData(date) {
-    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/${date}/hardcover-fiction.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
+    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/overview/${date}.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
 
     fetch (NYTurl)
         .then(function (response) {
             if (response.ok) {
                     response.json().then(function (data) {
                     console.log(data);
+                    displayNYT(data);
                 });
             }
         });
@@ -49,7 +52,7 @@ $(function() {
 
 //  Fires when the user presses submit after selecting a date. It calls get functions for api data for the selected date from NYT and wikimedia
  function dateSubmitHandler(event){
-     event.preventDefault();
+    event.preventDefault();
     var dateInput = datePicker.value;
     var dateArray = dateInput.split('-', 3);
     var month = dateArray[1];
@@ -60,7 +63,6 @@ $(function() {
 
 //grabs daily death info from wikimedia
 function dailyDeath(data) {
-    console.log(data)
     var randomizer = Math.floor(Math.random() * 100);
     var accessDeath = data.deaths[randomizer];
     var nameOfDeceased = accessDeath.pages[0].displaytitle;
@@ -85,7 +87,68 @@ function dailyDeath(data) {
     description.setAttribute('class', '')
     description.textContent = descriptionOfDeceased;
     name.append(description)
+}
 
+function displayNYT(data) {
+    // Desired data for bestelling combined ebook and print fiction
+    var fictionTitle = data.results.lists[0].books[0].title;
+    var fictionAuthor = data.results.lists[0].books[0].author;
+    var fictionImage = data.results.lists[0].books[0].book_image;
+    var fictionURL = data.results.lists[0].books[0].amazon_product_url;
+    // Desired data for bestelling combined ebook and print non-fiction
+    var nfictionTitle = data.results.lists[1].books[0].title;
+    var nfictionAuthor = data.results.lists[1].books[0].author;
+    var nfictionImage = data.results.lists[1].books[0].book_image;
+    var nfictionURL = data.results.lists[1].books[0].amazon_product_url;
+    // Create container elements for each type of book
+    var fictionBox = document.createElement('div');
+    var nfictionBox = document.createElement('div');
+    // Generate parent uls for data points
+    var fictionBoxUl = document.createElement('ul');
+    var nfictionBoxUl = document.createElement('ul');
+    // Generate lis for each data point
+    var fictionBoxTitle = document.createElement('li');
+    var fictionBoxAuthor = document.createElement('li');
+    var fictionBoxImage = document.createElement('li');
+    var fictionBoxURL = document.createElement('li');
+    var nfictionBoxTitle = document.createElement('li');
+    var nfictionBoxAuthor = document.createElement('li');
+    var nfictionBoxImage = document.createElement('li');
+    var nfictionBoxURL = document.createElement('li');
+    // Generate img elements for fiction and n fiction images
+    var fictionImgContainer = document.createElement('img');
+    var nfictionImgContainer = document.createElement('img');
+    // Fill img containers with img src
+    fictionImgContainer.src = fictionImage;
+    nfictionImgContainer.src = nfictionImage;
+    // Add alt text to images
+    fictionImgContainer.alt = "Cover art for " + fictionTitle;
+    nfictionImgContainer.alt = "Cover art for " +nfictionTitle;
+    // Fill each li with appropriate data
+    fictionBoxTitle.textContent = fictionTitle;
+    fictionBoxAuthor.textContent = fictionAuthor;
+    fictionBoxURL.innerHTML = `<a href="`+fictionURL+`">Amazon Store Page</a>`
+    nfictionBoxTitle.textContent = nfictionTitle;
+    nfictionBoxAuthor.textContent = nfictionAuthor;
+    nfictionBoxURL.innerHTML = `<a href="`+nfictionURL+`">Amazon Store Page</a>`;
+    // Append img containers to lis
+    fictionBoxImage.appendChild(fictionImgContainer);
+    nfictionBoxImage.appendChild(nfictionImgContainer);
+    // Append lis to uls
+    fictionBoxUl.appendChild(fictionBoxTitle);
+    fictionBoxUl.appendChild(fictionBoxAuthor);
+    fictionBoxUl.appendChild(fictionBoxImage);
+    fictionBoxUl.appendChild(fictionBoxURL);
+    nfictionBoxUl.appendChild(nfictionBoxTitle);
+    nfictionBoxUl.appendChild(nfictionBoxAuthor);
+    nfictionBoxUl.appendChild(nfictionBoxImage);
+    nfictionBoxUl.appendChild(nfictionBoxURL);
+    // Append uls to parent containers
+    fictionBox.appendChild(fictionBoxUl);
+    nfictionBox.appendChild(nfictionBoxUl);
+    // Append fiction and nfiction containers to parent container
+    nytBox.appendChild(fictionBox);
+    nytBox.appendChild(nfictionBox);
 }
 
 function init() {
