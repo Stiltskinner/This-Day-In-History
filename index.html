@@ -17,21 +17,22 @@
       <h1>
         This Day in History
       </h1>
-    </div>
-  </header>
-    <main>
-      <section class="content-row">
-        <div class="death-box">
-        </div>
-
         <form id="date-picker-form">
           <!-- input needs to be ready only because the api url needs the exact format that datepicker generates -->
           <input type="text" id="date-picker" readonly></input>
           <button>Submit</button>
         </form>
-        <div id="NYT-box"></div>
-      </section>
-    </main>
+    </div>
+  </header>
+  
+  <main>
+    <section id="wikimedia-card" class="content-row">
+      <div class="death-box">
+      </div>
+      <div class="birth-box">
+      </div>
+    </section>
+  </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
