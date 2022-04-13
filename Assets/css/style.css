@@ -22,8 +22,6 @@ body {
     justify-content: center;
     padding-top: 1%;
     background-position: center;
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
 }
 
 header {
@@ -32,9 +30,17 @@ header {
     width: 98%;
     min-width: 98%;
     box-sizing: border-box;
-    max-height: 40vh;
+    max-height: 30vh;
+    min-height: 15vh;
 }
 
+main {
+    width: 98%;
+    padding-bottom: 10px;
+}
+
+
+/* The purpose of the classes is to share styling between multiple elements, all of whom will  */
 .content-card-borders {
     border-style: solid;
     background-color: #2A3245;
@@ -47,27 +53,66 @@ header {
 
 .content-row {
     width: 100%;
+    box-sizing: border-box;
+    flex: 1;
     display: inline-block;
-    flex-wrap: wrap;
+    /* flex-wrap: nowrap; */
     padding-top: 10px;
     justify-content: space-between;
     flex-direction: row;
     min-width: 100%;
     position: relative;
-    max-height: 40vh;
+    padding-bottom: 5px;
 }
 
 .content-card {
-    display: block;
-    justify-content: space-evenly;
-    width: 45%;
+    margin:  0;
+    flex: 1;
+    display: inline-block;
+    box-sizing: border-box;
     padding: 20px;
-    flex-wrap: wrap;
+    width: 100%;
     position: relative;
-    max-height: 40vh;
+    min-height: 60vh;
+    max-height: 60vh;
     overflow: scroll;
+}
+
+.card-title {
+    font-size: 18px;
+}
+
+.box-text {
+    width: 80%;
+}
+
+.box-img {
+    max-width: 300px;
+}
+
+.birth-box {
+    width: 49.5%;
+}
+
+.death-box {
+    width: 49.5%;
+}
+
+#book-box {
+    display: flex;
+    box-sizing: border-box;
+    /* flex: 1; */
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+    min-height: 30vh;
+}
+
+#box-text {
+    max-width: 60px;
 }
 
 #wikimedia-cards {
     display: flex;
 }
+

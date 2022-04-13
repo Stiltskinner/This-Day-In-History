@@ -62,9 +62,9 @@ function dateSubmitHandler(event) {
 
 //grabs daily death info from wikimedia
 function dailyDeath(data) {
-    var ifBox = document.querySelector('#death-box')
+    var ifBox = document.querySelector('.death-box')
     if (ifBox) {
-        ifBox.remove();
+        // ifBox.remove();
     }
     var randomizer = Math.floor(Math.random() * data.deaths.length);
     var accessDeath = data.deaths[randomizer];
@@ -79,14 +79,15 @@ function dailyDeath(data) {
 
     //creates elements based on the data about the daily death
     var deathBox = document.querySelector('.death-box')
+    console.log(deathBox);
     // div element to hold died on this day data
     var box = document.createElement('div')
-    box.setAttribute('id', 'death-box')
-    box.setAttribute('class', 'box content-card-borders content-card')
+    box.setAttribute('class', 'death-box')
+    box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
     // "Daily Death" title element
     var deathTitle = document.createElement('h1')
-    deathTitle.setAttribute('class', '')
+    deathTitle.setAttribute('class', 'card-title')
     deathTitle.textContent = "Daily Death!";
     box.append(deathTitle)
     // Name of deceased on this day
@@ -96,12 +97,12 @@ function dailyDeath(data) {
     box.append(name)
     // description of deceased on this day
     var description = document.createElement('p')
-    description.setAttribute('class', '')
+    description.setAttribute('class', 'death-text')
     description.textContent = descriptionOfDeceased;
     box.append(description)
     // image of deceased on this day
     var image = document.createElement('img')
-    image.setAttribute('class', '')
+    image.setAttribute('class', 'box-img')
     image.src = imageOfDeceasedSrc;
     box.append(image)
     // link to wikipedia page of the deceased
@@ -129,12 +130,12 @@ function dailyBirth(data) {
     var birthBox = document.querySelector('.birth-box')
     // div for born on this day data
     var box = document.createElement('div')
-    box.setAttribute("id", "birth-box")
-    box.setAttribute('class', 'box content-card-borders content-card')
+    box.setAttribute("class", "birth-box")
+    box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
     // title for daily birth
     var birthTitle = document.createElement('h1')
-    birthTitle.setAttribute('class', '')
+    birthTitle.setAttribute('class', 'card-title')
     birthTitle.textContent = "Born on this day:";
     box.append(birthTitle)
     // name of person born on this day
@@ -144,12 +145,12 @@ function dailyBirth(data) {
     box.append(name)
     // description of person born on this day
     var description = document.createElement('p')
-    description.setAttribute('class', '')
+    description.setAttribute('class', 'box-text')
     description.textContent = descriptionOfBorn;
     box.append(description);
     // image of person born on this day
     var image = document.createElement('img')
-    image.setAttribute('class', '')
+    image.setAttribute('class', 'box-img')
     image.src = imageOfBornSrc;
     box.append(image)
     // link to wikipedia page for person born on this day
