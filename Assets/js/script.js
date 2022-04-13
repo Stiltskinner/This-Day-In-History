@@ -32,8 +32,7 @@ function getWikiData(month, day) {
 }
 
 function getNYTData(date) {
-    let NYTurl = `https://api.nytimes.com/svc/books/v3/lists/overview/${date}.json?api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
-
+    var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/full-overview.json?published_date=${date}&api-key=vIlsIhWPGi8CkeUBLZqsQGvY7xM7CNlk`;
     fetch(NYTurl)
         .then(function (response) {
             if (response.ok) {
@@ -89,31 +88,39 @@ function dailyDeath(data) {
     box.setAttribute('id', 'death-box-content')
     box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
+    // div for title header elements
+    var headerDiv = document.createElement('div')
+    headerDiv.setAttribute('class','')
+    box.appendChild(headerDiv)
     // "Daily Death" title element
     var deathTitle = document.createElement('h1')
     deathTitle.setAttribute('class', 'card-title')
     deathTitle.textContent = "Daily Death!";
-    box.append(deathTitle)
+    headerDiv.append(deathTitle)
     // Name of deceased on this day
     var name = document.createElement('h2')
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfDeceased;
-    box.append(name)
-    // description of deceased on this day
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfDeceased;
-    box.append(description)
+    headerDiv.append(name)
+    // div for content
+    var contentDiv = document.createElement('div')
+    contentDiv.setAttribute('class','')
+    box.append(contentDiv)
     // image of the deceased
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfDeceasedSrc;
-    box.append(image)
+    contentDiv.append(image)
+    // description of deceased on this day
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfDeceased;
+    contentDiv.append(description)
     // link to wikipedia page the deceased on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfDeceased)
     link.textContent = 'Learn more!';
-    box.append(link)
+    contentDiv.append(link)
 }
 
 // grabs daily birth data from wikimedia
@@ -141,31 +148,39 @@ function dailyBirth(data) {
     box.setAttribute("id", "birth-box-content")
     box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
+    // div for title header elements
+    var headerDiv = document.createElement('div')
+    headerDiv.setAttribute('class','')
+    box.appendChild(headerDiv)
     // title for daily birth
     var birthTitle = document.createElement('h1')
-    birthTitle.setAttribute('class', 'card-title')
+    birthTitle.setAttribute('class', '')
     birthTitle.textContent = "Born on this day:";
-    box.append(birthTitle)
+    headerDiv.append(birthTitle)
     // name of person born on this day
     var name = document.createElement('h2')
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfBorn;
-    box.append(name)
-    // description of person born on this day
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfBorn;
-    box.append(description)
+    headerDiv.append(name)
+    // div for content
+    var contentDiv = document.createElement('div')
+    contentDiv.setAttribute('class','')
+    box.append(contentDiv)
     // image of person born on this day
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfBornSrc;
-    box.append(image)
+    contentDiv.append(image)
+    // description of person born on this day
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfBorn;
+    contentDiv.append(description)
     // link to wikipedia page for person born on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfBorn)
     link.textContent = "Learn more!";
-    box.append(link)
+    contentDiv.append(link)
 }
 
 // HOLIDAY BOX contains holidays happening today around the world
@@ -195,31 +210,39 @@ function holiday(data) {
     box.setAttribute("id", "holiday-content")
     box.setAttribute('class', 'content-card-borders content-card')
     holidayBox.append(box)
+    // div for card title elements
+    var headerDiv = document.createElement('div')
+    headerDiv.setAttribute('class','')
+    box.appendChild(headerDiv)
     // title for holiday
     var holidayTitle = document.createElement('h1')
     holidayTitle.setAttribute('class', 'card-title')
     holidayTitle.textContent = "Holiday ROAD:";
-    box.append(holidayTitle)
+    headerDiv.append(holidayTitle)
     // name of holiday
     var name = document.createElement('h2')
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfHoliday;
-    box.append(name)
-    // description of holiday
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfHoliday;
-    box.append(description);
+    headerDiv.append(name)
+    //div for content
+    var contentDiv = document.createElement('div')
+    contentDiv.setAttribute('class','')
+    box.append(contentDiv)
     // image of holiday
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfHolidaySrc;
-    box.append(image)
+    contentDiv.append(image)
+    // description of holiday
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfHoliday;
+    contentDiv.append(description);
     // link to holiday wikipedia page
     var link = document.createElement('a')
     link.setAttribute('href', linkOfHoliday)
     link.textContent = "Learn more!";
-    box.append(link)
+    contentDiv.append(link)
 }
 
 // events in history box! stores data in variables to be used in generated elements
@@ -241,48 +264,53 @@ function events(data) {
     }
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
-
     var eventBox = document.querySelector('#event-box')
     // div for events on this day data
     var box = document.createElement('div')
     box.setAttribute("id", "event-content")
     box.setAttribute('class', 'content-card-borders content-card')
     eventBox.append(box)
+    // div for header title elements
+    var headerDiv = document.createElement('div')
+    headerDiv.setAttribute('class','')
+    box.appendChild(headerDiv)
     // title for event
     var eventTitle = document.createElement('h1')
     eventTitle.setAttribute('class', 'card-title')
     eventTitle.textContent = "On this day in History!";
-    box.append(eventTitle)
+    headerDiv.append(eventTitle)
     // name of event
     var name = document.createElement('h2')
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfEvent;
-    box.append(name)
-    // description of event
-    var description = document.createElement('p')
-    description.setAttribute('class', 'box-text')
-    description.textContent = descriptionOfEvent;
-    box.append(description);
+    headerDiv.append(name)
+    // div for content
+    var contentDiv = document.createElement('div')
+    contentDiv.setAttribute('class','')
+    box.append(contentDiv)
     // image of event
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfEventSrc;
-    box.append(image)
+    contentDiv.append(image)
+    // description of event
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfEvent;
+    contentDiv.append(description);
     // link to wikipedia page for event
     var link = document.createElement('a')
     link.setAttribute('href', linkOfEvent)
     link.textContent = "Learn more!";
-    box.append(link)
+    contentDiv.append(link)
 }
 
 function displayNYT(data) {
-    var ifFictionBox = document.querySelector('#fic-sec')
-    var ifNfictionBox = document.querySelector('#non-fic-sec')
+    var ifFictionBox = document.querySelector('#fic-sec');
+    var ifNFictionBox = document.querySelector('#non-fic-sec');
     if (ifFictionBox) {
-        fictionBox.remove();
-    }
-    if (ifNfictionBox) {
-        nfictionBox.remove();
+        ifFictionBox.remove();
+        ifNFictionBox.remove();
     }
     // Desired data for bestelling combined ebook and print fiction
     var fictionTitle = data.results.lists[0].books[0].title;
@@ -296,6 +324,7 @@ function displayNYT(data) {
     var nfictionImage = data.results.lists[1].books[0].book_image;
     var nfictionDescription = data.results.lists[1].books[0].description;
     var nfictionURL = data.results.lists[1].books[0].amazon_product_url;
+    console.log(fictionTitle);
     // Create container elements for each type of book
     var fictionBox = document.createElement('div');
     var nfictionBox = document.createElement('div');
