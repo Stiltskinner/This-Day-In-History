@@ -3,8 +3,8 @@
 var datePicker = document.querySelector('#date-picker');
 var datePickerForm = document.querySelector('#date-picker-form');
 var selectedDate;
-// nytBox is a placeholder div that serves as parent element for everything created in NYTDisplay function
-var nytBox = document.querySelector("#NYT-box");
+// bookBox is a placeholder div that serves as parent element for everything created in NYTDisplay function
+var bookBox = document.querySelector("#book-box");
 
 // This function should fire with init using current month and day, and it should fire when the user inputs data using date picker for the selected month and day.
 
@@ -104,7 +104,7 @@ function dailyDeath(data) {
     var description = document.createElement('p')
     description.setAttribute('class', 'death-text')
     description.textContent = descriptionOfDeceased;
-    name.append(description)
+    box.append(description)
     // image of the deceased
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
@@ -281,61 +281,102 @@ function displayNYT(data) {
     var fictionTitle = data.results.lists[0].books[0].title;
     var fictionAuthor = data.results.lists[0].books[0].author;
     var fictionImage = data.results.lists[0].books[0].book_image;
+    var fictionDescription = data.results.lists[0].books[0].description;
     var fictionURL = data.results.lists[0].books[0].amazon_product_url;
     // Desired data for bestelling combined ebook and print non-fiction
     var nfictionTitle = data.results.lists[1].books[0].title;
     var nfictionAuthor = data.results.lists[1].books[0].author;
     var nfictionImage = data.results.lists[1].books[0].book_image;
+    var nfictionDescription = data.results.lists[1].books[0].description;
     var nfictionURL = data.results.lists[1].books[0].amazon_product_url;
     // Create container elements for each type of book
     var fictionBox = document.createElement('div');
     var nfictionBox = document.createElement('div');
-    // Generate parent uls for data points
-    var fictionBoxUl = document.createElement('ul');
-    var nfictionBoxUl = document.createElement('ul');
-    // Generate lis for each data point
-    var fictionBoxTitle = document.createElement('li');
-    var fictionBoxAuthor = document.createElement('li');
-    var fictionBoxImage = document.createElement('li');
-    var fictionBoxURL = document.createElement('li');
-    var nfictionBoxTitle = document.createElement('li');
-    var nfictionBoxAuthor = document.createElement('li');
-    var nfictionBoxImage = document.createElement('li');
-    var nfictionBoxURL = document.createElement('li');
+    // Apply classes and IDs to to container elements
+    fictionBox.setAttribute('class','book-sec');
+    fictionBox.setAttribute('id','fic-sec');
+    nfictionBox.setAttribute('class','book-sec');
+    nfictionBox.setAttribute('id','non-fic-sec');
+    // Generate containers for header text
+    var fictionHeader = document.createElement('h2');
+    var nfictionHeader = document.createElement('h2');
+    // Set classes and IDs for header elements
+    // book-header class needs to be defined in CSS
+    fictionHeader.setAttribute('class','book-header');
+    nfictionHeader.setAttribute('class','book-header');
+    // Fill header elements with text
+    fictionHeader.textContent = "NyTimes #1 Bestselling Fiction Book";
+    nfictionHeader.textContent = "NyTimes #1 Bestselling Non-Fiction Book";
+    // Generate containers for each data point
+    var fictionBoxTitle = document.createElement('h3');
+    var fictionBoxAuthor = document.createElement('h4');
+    var fictionBoxImage = document.createElement('div');
+    var fictionBoxDescription = document.createElement('p');
+    var fictionBoxURL = document.createElement('div');
+    var nfictionBoxTitle = document.createElement('h3');
+    var nfictionBoxAuthor = document.createElement('h4');
+    var nfictionBoxImage = document.createElement('div');
+    var nfictionBoxDescription = document.createElement('p');
+    var nfictionBoxURL = document.createElement('div');
     // Generate img elements for fiction and n fiction images
     var fictionImgContainer = document.createElement('img');
     var nfictionImgContainer = document.createElement('img');
+    // Set classes and IDs for data elements
+    fictionBoxTitle.setAttribute('class','card-header');
+    fictionBoxAuthor.setAttribute('class','book-author'); //class book-author needs to be defined in CSS
+    fictionBoxImage.setAttribute('class','book-pic');
+    fictionBoxDescription.setAttribute('class','book-text');
+    fictionBoxURL.setAttribute('class', 'book-url'); //class book-url needs to be defined in CSS
+    fictionBoxTitle.setAttribute('id','fic-title');
+    fictionBoxAuthor.setAttribute('id','fic-author');
+    fictionBoxImage.setAttribute('id','fic-pic');
+    fictionBoxDescription.setAttribute('id','fic-text');
+    fictionBoxURL.setAttribute('id','fic-url');
+    nfictionBoxTitle.setAttribute('class','card-header');
+    nfictionBoxAuthor.setAttribute('class','book-author'); //class book-author needs to be defined in CSS
+    nfictionBoxImage.setAttribute('class','book-pic');
+    nfictionBoxDescription.setAttribute('class','book-text');
+    nfictionBoxURL.setAttribute('class', 'book-url'); //class book-url needs to be defined in CSS
+    nfictionBoxTitle.setAttribute('id','non-fic-title');
+    nfictionBoxAuthor.setAttribute('id','non-fic-author');
+    nfictionBoxImage.setAttribute('id','non-fic-pic');
+    nfictionBoxDescription.setAttribute('id','non-fic-text');
+    nfictionBoxURL.setAttribute('id','non-fic-url');
     // Fill img containers with img src
     fictionImgContainer.src = fictionImage;
     nfictionImgContainer.src = nfictionImage;
     // Add alt text to images
     fictionImgContainer.alt = "Cover art for " + fictionTitle;
     nfictionImgContainer.alt = "Cover art for " +nfictionTitle;
-    // Fill each li with appropriate data
+    // Fill each data element with appropriate data
     fictionBoxTitle.textContent = fictionTitle;
     fictionBoxAuthor.textContent = fictionAuthor;
     fictionBoxURL.innerHTML = `<a href="`+fictionURL+`">Amazon Store Page</a>`
+    fictionBoxDescription.textContent = fictionDescription;
     nfictionBoxTitle.textContent = nfictionTitle;
     nfictionBoxAuthor.textContent = nfictionAuthor;
     nfictionBoxURL.innerHTML = `<a href="`+nfictionURL+`">Amazon Store Page</a>`;
-    // Append img containers to lis
+    nfictionBoxDescription.textContent = nfictionDescription;
+    // Append fiction and nfiction headers to parent containers
+    fictionBox.appendChild(fictionHeader);
+    nfictionBox.appendChild(nfictionHeader);
+    // Append img containers to containers
     fictionBoxImage.appendChild(fictionImgContainer);
     nfictionBoxImage.appendChild(nfictionImgContainer);
-    // Append lis to uls
-    fictionBoxUl.appendChild(fictionBoxTitle);
-    fictionBoxUl.appendChild(fictionBoxAuthor);
-    fictionBoxUl.appendChild(fictionBoxImage);
-    fictionBoxUl.appendChild(fictionBoxURL);
-    nfictionBoxUl.appendChild(nfictionBoxTitle);
-    nfictionBoxUl.appendChild(nfictionBoxAuthor);
-    nfictionBoxUl.appendChild(nfictionBoxImage);
-    nfictionBoxUl.appendChild(nfictionBoxURL);
-    // Append uls to parent containers
-    fictionBox.appendChild(fictionBoxUl);
-    nfictionBox.appendChild(nfictionBoxUl);
+    // Append data-containing elements to parent containers
+    fictionBox.appendChild(fictionBoxImage);
+    fictionBox.appendChild(fictionBoxTitle);
+    fictionBox.appendChild(fictionBoxAuthor);
+    fictionBox.appendChild(fictionBoxDescription);
+    fictionBox.appendChild(fictionBoxURL);
+    nfictionBox.appendChild(nfictionBoxImage);
+    nfictionBox.appendChild(nfictionBoxTitle);
+    nfictionBox.appendChild(nfictionBoxAuthor);
+    nfictionBox.appendChild(nfictionBoxDescription);
+    nfictionBox.appendChild(nfictionBoxURL);
     // Append fiction and nfiction containers to parent container
-    nytBox.appendChild(fictionBox);
-    nytBox.appendChild(nfictionBox);
+    bookBox.appendChild(fictionBox);
+    bookBox.appendChild(nfictionBox);
 }
 
 function init() {
