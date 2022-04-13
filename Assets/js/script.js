@@ -81,11 +81,11 @@ function dailyDeath(data) {
     var linkOfDeceased = accessDeath.pages[0].content_urls.desktop.page;
 
     //creates elements based on the data about the daily death
-    var deathBox = document.querySelector('.death-box')
+    var deathBox = document.querySelector('#death-box')
     console.log(deathBox);
     // div element to hold died on this day data
     var box = document.createElement('div')
-    box.setAttribute('class', 'death-box')
+    box.setAttribute('id', 'death-box')
     box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
     // "Daily Death" title element
@@ -100,9 +100,18 @@ function dailyDeath(data) {
     box.append(name)
     // description of deceased on this day
     var description = document.createElement('p')
-    description.setAttribute('class', 'death-text')
+    description.setAttribute('class', 'box-text')
     description.textContent = descriptionOfDeceased;
-    name.append(description)
+    box.append(description)
+    var image = document.createElement('img')
+    image.setAttribute('class', 'box-img')
+    image.src = imageOfDeceasedSrc;
+    box.append(image)
+    // link to wikipedia page the deceased on this day
+    var link = document.createElement('a')
+    link.setAttribute('href', linkOfDeceased)
+    link.textContent = 'Learn more!';
+    box.append(link)
 }
 
 function displayNYT(data) {
@@ -139,14 +148,14 @@ function displayNYT(data) {
     nfictionImgContainer.src = nfictionImage;
     // Add alt text to images
     fictionImgContainer.alt = "Cover art for " + fictionTitle;
-    nfictionImgContainer.alt = "Cover art for " +nfictionTitle;
+    nfictionImgContainer.alt = "Cover art for " + nfictionTitle;
     // Fill each li with appropriate data
     fictionBoxTitle.textContent = fictionTitle;
     fictionBoxAuthor.textContent = fictionAuthor;
-    fictionBoxURL.innerHTML = `<a href="`+fictionURL+`">Amazon Store Page</a>`
+    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `">Amazon Store Page</a>`
     nfictionBoxTitle.textContent = nfictionTitle;
     nfictionBoxAuthor.textContent = nfictionAuthor;
-    nfictionBoxURL.innerHTML = `<a href="`+nfictionURL+`">Amazon Store Page</a>`;
+    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `">Amazon Store Page</a>`;
     // Append img containers to lis
     fictionBoxImage.appendChild(fictionImgContainer);
     nfictionBoxImage.appendChild(nfictionImgContainer);
@@ -165,17 +174,6 @@ function displayNYT(data) {
     // Append fiction and nfiction containers to parent container
     nytBox.appendChild(fictionBox);
     nytBox.appendChild(nfictionBox);
-    box.append(description)
-    // image of deceased on this day
-    var image = document.createElement('img')
-    image.setAttribute('class', 'box-img')
-    image.src = imageOfDeceasedSrc;
-    box.append(image)
-    // link to wikipedia page of the deceased
-    var link = document.createElement('a')
-    link.setAttribute('href', linkOfDeceased)
-    link.textContent = "Learn more!";
-    box.append(link)
 }
 
 // grabd daily birth data from wikimedia
@@ -193,10 +191,10 @@ function dailyBirth(data) {
     var linkOfBorn = accessBirth.pages[0].content_urls.desktop.page;
 
     //creates elements based on the data about the daily death
-    var birthBox = document.querySelector('.birth-box')
+    var birthBox = document.querySelector('#birth-box')
     // div for born on this day data
     var box = document.createElement('div')
-    box.setAttribute("class", "birth-box")
+    box.setAttribute("id", "birth-box")
     box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
     // title for daily birth
@@ -213,7 +211,7 @@ function dailyBirth(data) {
     var description = document.createElement('p')
     description.setAttribute('class', 'box-text')
     description.textContent = descriptionOfBorn;
-    box.append(description);
+    box.append(description)
     // image of person born on this day
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')

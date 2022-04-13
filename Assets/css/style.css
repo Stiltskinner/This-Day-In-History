@@ -54,8 +54,8 @@ main {
 .content-row {
     width: 100%;
     box-sizing: border-box;
-    flex: 1;
-    display: inline-block;
+    /* flex: 1; */
+    display: inline-flex;
     /* flex-wrap: nowrap; */
     padding-top: 10px;
     justify-content: space-between;
@@ -66,13 +66,13 @@ main {
 }
 
 .content-card {
-    margin:  0;
-    flex: 1;
+    margin:  1%;
+    /* flex: 1; */
     display: inline-block;
     box-sizing: border-box;
     padding: 20px;
     width: 100%;
-    position: relative;
+    /* position: relative; */
     min-height: 60vh;
     max-height: 60vh;
     overflow: scroll;
@@ -90,18 +90,21 @@ main {
     max-width: 300px;
 }
 
-.birth-box {
-    width: 49.5%;
+#birth-box {
+    margin-left: 1%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.death-box {
-    width: 49.5%;
+#death-box {
+    margin-right: 1%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #book-box {
     display: flex;
     box-sizing: border-box;
-    /* flex: 1; */
     flex-direction: column;
     width: 100%;
     padding-top: 20px;
