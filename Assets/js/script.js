@@ -305,8 +305,8 @@ function displayNYT(data) {
     fictionHeader.setAttribute('class','book-header');
     nfictionHeader.setAttribute('class','book-header');
     // Fill header elements with text
-    fictionHeader.textContent = "NyTimes #1 Bestselling Fiction Book";
-    nfictionHeader.textContent = "NyTimes #1 Bestselling Non-Fiction Book";
+    fictionHeader.textContent = "New York Times #1 Bestselling Fiction Book";
+    nfictionHeader.textContent = "New York Times #1 Bestselling Non-Fiction Book";
     // Generate containers for each data point
     var fictionBoxTitle = document.createElement('h3');
     var fictionBoxAuthor = document.createElement('h4');
