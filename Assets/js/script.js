@@ -188,6 +188,16 @@ function displayNYT(data) {
     fictionBox.setAttribute('id','fic-sec');
     nfictionBox.setAttribute('class','book-sec');
     nfictionBox.setAttribute('id','non-fic-sec');
+    // Generate containers for header text
+    var fictionHeader = document.createElement('h2');
+    var nfictionHeader = document.createElement('h2');
+    // Set classes and IDs for header elements
+    // book-header class needs to be defined in CSS
+    fictionHeader.setAttribute('class','book-header');
+    nfictionHeader.setAttribute('class','book-header');
+    // Fill header elements with text
+    fictionHeader.textContent = "NyTimes #1 Bestselling Fiction Book";
+    nfictionHeader.textContent = "NyTimes #1 Bestselling Non-Fiction Book";
     // Generate containers for each data point
     var fictionBoxTitle = document.createElement('h3');
     var fictionBoxAuthor = document.createElement('h4');
@@ -238,7 +248,10 @@ function displayNYT(data) {
     nfictionBoxAuthor.textContent = nfictionAuthor;
     nfictionBoxURL.innerHTML = `<a href="`+nfictionURL+`">Amazon Store Page</a>`;
     nfictionBoxDescription.textContent = nfictionDescription;
-    // Append img containers to lis
+    // Append fiction and nfiction headers to parent containers
+    fictionBox.appendChild(fictionHeader);
+    nfictionBox.appendChild(nfictionHeader);
+    // Append img containers to containers
     fictionBoxImage.appendChild(fictionImgContainer);
     nfictionBoxImage.appendChild(nfictionImgContainer);
     // Append data-containing elements to parent containers
