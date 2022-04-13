@@ -24,6 +24,8 @@ function getWikiData(month, day) {
                     console.log(data);
                     dailyDeath(data);
                     dailyBirth(data);
+                    holiday(data);
+                    events(data);
                 });
             }
         });
@@ -163,6 +165,113 @@ function dailyBirth(data) {
     // link to wikipedia page for person born on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfBorn)
+    link.textContent = "Learn more!";
+    box.append(link)
+}
+
+// HOLIDAY BOX contains holidays happening today around the world
+function holiday(data) {
+    console.log(data)
+    var ifBox = document.querySelector('#holidays')
+    if (ifBox) {
+        ifBox.remove();
+    }
+    var randomizer = Math.floor(Math.random() * data.holidays.length);
+    var accessHoliday = data.holidays[randomizer];
+    var nameOfHoliday = accessHoliday.text;
+    var descriptionOfHoliday = accessHoliday.pages[0].extract;
+    console.log(descriptionOfHoliday)
+    if (!accessHoliday.pages[0].originalimage) {
+        console.log("no image")
+    } else {
+        var imageOfHolidaySrc = accessHoliday.pages[0].originalimage.source;
+    }
+    var linkOfHoliday = accessHoliday.pages[0].content_urls.desktop.page;
+
+    //creates elements based on the data about todays holiday
+    var holidayBox = document.querySelector('.holiday-box')
+    console.log(holidayBox)
+    // div for holiday data
+    var box = document.createElement('div')
+    box.setAttribute("id", "holidays")
+    box.setAttribute('class', 'content-card-borders content-card')
+    holidayBox.append(box)
+    // title for holiday
+    var holidayTitle = document.createElement('h1')
+    holidayTitle.setAttribute('class', 'card-title')
+    holidayTitle.textContent = "Holiday ROAD:";
+    box.append(holidayTitle)
+    // name of holiday
+    var name = document.createElement('h2')
+    name.setAttribute('class', 'card-header')
+    name.textContent = nameOfHoliday;
+    box.append(name)
+    // description of holiday
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfHoliday;
+    box.append(description);
+    // image of holiday
+    var image = document.createElement('img')
+    image.setAttribute('class', 'box-img')
+    image.src = imageOfHolidaySrc;
+    box.append(image)
+    // link to holiday wikipedia page
+    var link = document.createElement('a')
+    link.setAttribute('href', linkOfHoliday)
+    link.textContent = "Learn more!";
+    box.append(link)
+}
+
+// events in history box! stores data in variables to be used in generated elements
+function events(data) {
+    console.log(data)
+    var ifBox = document.querySelector('#events')
+    if (ifBox) {
+        ifBox.remove();
+    }
+    var randomizer = Math.floor(Math.random() * data.events.length);
+    var accessEvent = data.events[randomizer];
+    var nameOfEvent = accessEvent.text;
+    var descriptionOfEvent = accessEvent.pages[0].extract;
+    // checks if there is an image to display
+    if (!accessEvent.pages[0].originalimage) {
+        console.log("no image")
+    } else {
+        var imageOfEventSrc = accessEvent.pages[0].originalimage.source;
+    }
+    var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
+
+    
+    var eventBox = document.querySelector('.event-box')
+    // div for events on this day data
+    var box = document.createElement('div')
+    box.setAttribute("id", "events")
+    box.setAttribute('class', 'content-card-borders content-card')
+    eventBox.append(box)
+    // title for event
+    var eventTitle = document.createElement('h1')
+    eventTitle.setAttribute('class', 'card-title')
+    eventTitle.textContent = "On this day in History!";
+    box.append(eventTitle)
+    // name of event
+    var name = document.createElement('h2')
+    name.setAttribute('class', 'card-header')
+    name.textContent = nameOfEvent;
+    box.append(name)
+    // description of event
+    var description = document.createElement('p')
+    description.setAttribute('class', 'box-text')
+    description.textContent = descriptionOfEvent;
+    box.append(description);
+    // image of event
+    var image = document.createElement('img')
+    image.setAttribute('class', 'box-img')
+    image.src = imageOfEventSrc;
+    box.append(image)
+    // link to wikipedia page for event
+    var link = document.createElement('a')
+    link.setAttribute('href', linkOfEvent)
     link.textContent = "Learn more!";
     box.append(link)
 }
