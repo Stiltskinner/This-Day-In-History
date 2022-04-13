@@ -277,6 +277,14 @@ function events(data) {
 }
 
 function displayNYT(data) {
+    var ifFictionBox = document.querySelector('#fic-sec')
+    var ifNfictionBox = document.querySelector('#non-fic-sec')
+    if (ifFictionBox) {
+        fictionBox.remove();
+    }
+    if (ifNfictionBox) {
+        nfictionBox.remove();
+    }
     // Desired data for bestelling combined ebook and print fiction
     var fictionTitle = data.results.lists[0].books[0].title;
     var fictionAuthor = data.results.lists[0].books[0].author;
