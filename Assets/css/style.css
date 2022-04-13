@@ -37,6 +37,7 @@ header {
 main {
     width: 98%;
     padding-bottom: 10px;
+    flex-direction: column;
 }
 
 
@@ -76,6 +77,13 @@ main {
     min-height: 60vh;
     max-height: 60vh;
     overflow: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.content-card::-webkit-scrollbar {
+    display: none;
 }
 
 .card-title {
@@ -87,7 +95,12 @@ main {
 }
 
 .box-img {
-    max-width: 300px;
+    width: 60%;
+    min-width: 60%;
+}
+
+#date-picker-form {
+
 }
 
 #birth-box {
@@ -96,7 +109,19 @@ main {
     box-sizing: border-box;
 }
 
-#death-box {
+#death-box{
+    margin-right: 1%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#holiday-content {
+    margin-left: 1%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#event-content {
     margin-right: 1%;
     width: 100%;
     box-sizing: border-box;
@@ -115,7 +140,7 @@ main {
     max-width: 60px;
 }
 
-#wikimedia-cards {
+#wikimedia-cards, #wikimedia-cards-second-row {
     display: flex;
 }
 
