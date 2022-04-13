@@ -65,9 +65,9 @@ function dateSubmitHandler(event) {
 
 //grabs daily death info from wikimedia
 function dailyDeath(data) {
-    var ifBox = document.querySelector('.death-box')
+    var ifBox = document.querySelector('#death-box')
     if (ifBox) {
-        // ifBox.remove();
+        ifBox.remove();
     }
     var randomizer = Math.floor(Math.random() * data.deaths.length);
     var accessDeath = data.deaths[randomizer];
@@ -85,7 +85,7 @@ function dailyDeath(data) {
     console.log(deathBox);
     // div element to hold died on this day data
     var box = document.createElement('div')
-    box.setAttribute('class', 'death-box')
+    box.setAttribute('id', 'death-box')
     box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
     // "Daily Death" title element
@@ -103,6 +103,16 @@ function dailyDeath(data) {
     description.setAttribute('class', 'death-text')
     description.textContent = descriptionOfDeceased;
     name.append(description)
+    // image of the deceased
+    var image = document.createElement('img')
+    image.setAttribute('class', 'box-img')
+    image.src = imageOfDeceasedSrc;
+    box.append(image)
+    // link to wikipedia page the deceased on this day
+    var link = document.createElement('a')
+    link.setAttribute('href', linkOfDeceased)
+    link.textContent = "Learn more!";
+    box.append(link)
 }
 
 function displayNYT(data) {
@@ -178,9 +188,13 @@ function displayNYT(data) {
     box.append(link)
 }
 
-// grabd daily birth data from wikimedia
+// grabs daily birth data from wikimedia
 function dailyBirth(data) {
     console.log(data)
+    var ifBox = document.querySelector('#birth-box')
+    if (ifBox) {
+        ifBox.remove();
+    }
     var randomizer = Math.floor(Math.random() * data.births.length);
     var accessBirth = data.births[randomizer];
     var nameOfBorn = accessBirth.pages[0].displaytitle;
@@ -196,7 +210,7 @@ function dailyBirth(data) {
     var birthBox = document.querySelector('.birth-box')
     // div for born on this day data
     var box = document.createElement('div')
-    box.setAttribute("class", "birth-box")
+    box.setAttribute("id", "birth-box")
     box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
     // title for daily birth
