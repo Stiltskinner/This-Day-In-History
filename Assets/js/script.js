@@ -83,7 +83,7 @@ function dailyDeath(data) {
     var linkOfDeceased = accessDeath.pages[0].content_urls.desktop.page;
 
     //creates elements based on the data about the daily death
-    var deathBox = document.querySelector('.death-box')
+    var deathBox = document.querySelector('#death-box')
     console.log(deathBox);
     // div element to hold died on this day data
     var box = document.createElement('div')
@@ -102,7 +102,7 @@ function dailyDeath(data) {
     box.append(name)
     // description of deceased on this day
     var description = document.createElement('p')
-    description.setAttribute('class', 'death-text')
+    description.setAttribute('class', 'box-text')
     description.textContent = descriptionOfDeceased;
     box.append(description)
     // image of the deceased
@@ -113,7 +113,7 @@ function dailyDeath(data) {
     // link to wikipedia page the deceased on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfDeceased)
-    link.textContent = "Learn more!";
+    link.textContent = 'Learn more!';
     box.append(link)
 }
 
@@ -136,7 +136,7 @@ function dailyBirth(data) {
     var linkOfBorn = accessBirth.pages[0].content_urls.desktop.page;
 
     //creates elements based on the data about the daily death
-    var birthBox = document.querySelector('.birth-box')
+    var birthBox = document.querySelector('#birth-box')
     // div for born on this day data
     var box = document.createElement('div')
     box.setAttribute("id", "birth-box")
@@ -156,7 +156,7 @@ function dailyBirth(data) {
     var description = document.createElement('p')
     description.setAttribute('class', 'box-text')
     description.textContent = descriptionOfBorn;
-    box.append(description);
+    box.append(description)
     // image of person born on this day
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
@@ -242,7 +242,7 @@ function events(data) {
     }
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
-    
+
     var eventBox = document.querySelector('.event-box')
     // div for events on this day data
     var box = document.createElement('div')
@@ -301,17 +301,17 @@ function displayNYT(data) {
     var fictionBox = document.createElement('div');
     var nfictionBox = document.createElement('div');
     // Apply classes and IDs to to container elements
-    fictionBox.setAttribute('class','book-sec');
-    fictionBox.setAttribute('id','fic-sec');
-    nfictionBox.setAttribute('class','book-sec');
-    nfictionBox.setAttribute('id','non-fic-sec');
+    fictionBox.setAttribute('class', 'book-sec');
+    fictionBox.setAttribute('id', 'fic-sec');
+    nfictionBox.setAttribute('class', 'book-sec');
+    nfictionBox.setAttribute('id', 'non-fic-sec');
     // Generate containers for header text
     var fictionHeader = document.createElement('h2');
     var nfictionHeader = document.createElement('h2');
     // Set classes and IDs for header elements
     // book-header class needs to be defined in CSS
-    fictionHeader.setAttribute('class','book-header');
-    nfictionHeader.setAttribute('class','book-header');
+    fictionHeader.setAttribute('class', 'book-header');
+    nfictionHeader.setAttribute('class', 'book-header');
     // Fill header elements with text
     fictionHeader.textContent = "New York Times #1 Bestselling Fiction Book";
     nfictionHeader.textContent = "New York Times #1 Bestselling Non-Fiction Book";
@@ -330,40 +330,40 @@ function displayNYT(data) {
     var fictionImgContainer = document.createElement('img');
     var nfictionImgContainer = document.createElement('img');
     // Set classes and IDs for data elements
-    fictionBoxTitle.setAttribute('class','card-header');
-    fictionBoxAuthor.setAttribute('class','book-author'); //class book-author needs to be defined in CSS
-    fictionBoxImage.setAttribute('class','book-pic');
-    fictionBoxDescription.setAttribute('class','book-text');
+    fictionBoxTitle.setAttribute('class', 'card-header');
+    fictionBoxAuthor.setAttribute('class', 'book-author'); //class book-author needs to be defined in CSS
+    fictionBoxImage.setAttribute('class', 'book-pic');
+    fictionBoxDescription.setAttribute('class', 'book-text');
     fictionBoxURL.setAttribute('class', 'book-url'); //class book-url needs to be defined in CSS
-    fictionBoxTitle.setAttribute('id','fic-title');
-    fictionBoxAuthor.setAttribute('id','fic-author');
-    fictionBoxImage.setAttribute('id','fic-pic');
-    fictionBoxDescription.setAttribute('id','fic-text');
-    fictionBoxURL.setAttribute('id','fic-url');
-    nfictionBoxTitle.setAttribute('class','card-header');
-    nfictionBoxAuthor.setAttribute('class','book-author'); //class book-author needs to be defined in CSS
-    nfictionBoxImage.setAttribute('class','book-pic');
-    nfictionBoxDescription.setAttribute('class','book-text');
+    fictionBoxTitle.setAttribute('id', 'fic-title');
+    fictionBoxAuthor.setAttribute('id', 'fic-author');
+    fictionBoxImage.setAttribute('id', 'fic-pic');
+    fictionBoxDescription.setAttribute('id', 'fic-text');
+    fictionBoxURL.setAttribute('id', 'fic-url');
+    nfictionBoxTitle.setAttribute('class', 'card-header');
+    nfictionBoxAuthor.setAttribute('class', 'book-author'); //class book-author needs to be defined in CSS
+    nfictionBoxImage.setAttribute('class', 'book-pic');
+    nfictionBoxDescription.setAttribute('class', 'book-text');
     nfictionBoxURL.setAttribute('class', 'book-url'); //class book-url needs to be defined in CSS
-    nfictionBoxTitle.setAttribute('id','non-fic-title');
-    nfictionBoxAuthor.setAttribute('id','non-fic-author');
-    nfictionBoxImage.setAttribute('id','non-fic-pic');
-    nfictionBoxDescription.setAttribute('id','non-fic-text');
-    nfictionBoxURL.setAttribute('id','non-fic-url');
+    nfictionBoxTitle.setAttribute('id', 'non-fic-title');
+    nfictionBoxAuthor.setAttribute('id', 'non-fic-author');
+    nfictionBoxImage.setAttribute('id', 'non-fic-pic');
+    nfictionBoxDescription.setAttribute('id', 'non-fic-text');
+    nfictionBoxURL.setAttribute('id', 'non-fic-url');
     // Fill img containers with img src
     fictionImgContainer.src = fictionImage;
     nfictionImgContainer.src = nfictionImage;
     // Add alt text to images
     fictionImgContainer.alt = "Cover art for " + fictionTitle;
-    nfictionImgContainer.alt = "Cover art for " +nfictionTitle;
+    nfictionImgContainer.alt = "Cover art for " + nfictionTitle;
     // Fill each data element with appropriate data
     fictionBoxTitle.textContent = fictionTitle;
     fictionBoxAuthor.textContent = fictionAuthor;
-    fictionBoxURL.innerHTML = `<a href="`+fictionURL+`">Amazon Store Page</a>`
+    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `">Amazon Store Page</a>`
     fictionBoxDescription.textContent = fictionDescription;
     nfictionBoxTitle.textContent = nfictionTitle;
     nfictionBoxAuthor.textContent = nfictionAuthor;
-    nfictionBoxURL.innerHTML = `<a href="`+nfictionURL+`">Amazon Store Page</a>`;
+    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `">Amazon Store Page</a>`;
     nfictionBoxDescription.textContent = nfictionDescription;
     // Append fiction and nfiction headers to parent containers
     fictionBox.appendChild(fictionHeader);
