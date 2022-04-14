@@ -100,7 +100,6 @@ main {
 
 .card-title {
     font-size: 18px;
-
 }
 
 .card-header {
@@ -257,4 +256,15 @@ main {
     height: 50%;
     justify-content: left;
     flex-direction: column;
+}
+
+.refresh-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: max-content;
+}
+.refresh {
+    height: 20px;
+    width: auto;
 }
