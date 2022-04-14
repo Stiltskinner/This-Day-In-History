@@ -25,39 +25,11 @@ function getWikiData(month, day) {
             if (response.ok) {
                 response.json().then(function (data) {
                     removeLoad();
-                    console.log(data);
                     dailyDeath(data);
                     dailyBirth(data);
                     holiday(data);
                     events(data);
-                    document.addEventListener("click", function(e){
-                        var target = e.target.id
-                        console.log(target)
-                        if (target === "death-refresh"){
-                            dailyDeath(data);
-                        }
-                    })
-                    document.addEventListener("click", function(e){
-                        var target = e.target.id
-                        console.log(target)
-                        if (target === "birth-refresh"){
-                            dailyBirth(data);
-                        }
-                    })
-                    document.addEventListener("click", function(e){
-                        var target = e.target.id
-                        console.log(target)
-                        if (target === "holiday-refresh"){
-                            holiday(data);
-                        }
-                    })
-                    document.addEventListener("click", function(e){
-                        var target = e.target.id
-                        console.log(target)
-                        if (target === "event-refresh"){
-                            events(data);
-                        }
-                    })
+                    refreshActivity(data);
                 });
             }
         });
@@ -69,7 +41,6 @@ function getNYTData(date) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
                     displayNYT(data);
                 });
             }
@@ -123,20 +94,72 @@ function dateSubmitHandler(event) {
     getNYTData(dateInput);
     getWikiData(month, day);
 }
-
+// Refreshes the specific card that the user clicks the refresh icon on. This also animates each one individually when the user clicks.
+function refreshActivity(data){
+document.addEventListener("click", function(e){
+    var target = e.target.id
+    if (target === "death-refresh"){
+        dailyDeath(data);
+        var refreshIcon = document.querySelector('#death-refresh')
+        refreshIcon.setAttribute('class','refresh-start refresh')
+    setTimeout(function () {
+        refreshIcon.addEventListener("animationiteration", function () {
+        refreshIcon.setAttribute("class", "refresh")
+        refreshIcon.removeEventListener("animationiteration")
+            });
+        }, 100)
+    }
+    if (target === "birth-refresh"){
+        dailyBirth(data);
+        var refreshIcon = document.querySelector('#birth-refresh')
+        refreshIcon.setAttribute('class','refresh-start refresh')
+    setTimeout(function () {
+        refreshIcon.addEventListener("animationiteration", function () {
+        refreshIcon.setAttribute("class", "refresh")
+        refreshIcon.removeEventListener("animationiteration")
+            });
+        }, 100)
+    }
+    if (target === "holiday-refresh"){
+        holiday(data);
+        var refreshIcon = document.querySelector('#holiday-refresh')
+        refreshIcon.setAttribute('class','refresh-start refresh')
+    setTimeout(function () {
+        refreshIcon.addEventListener("animationiteration", function () {
+        refreshIcon.setAttribute("class", "refresh")
+        refreshIcon.removeEventListener("animationiteration")
+            });
+        }, 100)
+    }
+    if (target === "event-refresh"){
+        events(data);
+        var refreshIcon = document.querySelector('#event-refresh')
+        refreshIcon.setAttribute('class','refresh-start refresh')
+    setTimeout(function () {
+        refreshIcon.addEventListener("animationiteration", function () {
+        refreshIcon.setAttribute("class", "refresh")
+        refreshIcon.removeEventListener("animationiteration")
+            });
+        }, 100)
+    }
+})
+}
 //DAILY DEATH
 function dailyDeath(data) {
-    // var ifBox = document.querySelector('#death-box-content')
-    // if (ifBox) {
-    //     ifBox.remove();
-    // }
+    // removes content in the case of a refresh or new date search
+    var ifBox = document.querySelector('#death-box-content')
+    if (ifBox) {
+        ifBox.remove();
+    }
+    // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.deaths.length);
     var accessDeath = data.deaths[randomizer];
     var nameOfDeceased = accessDeath.pages[0].displaytitle;
     var descriptionOfDeceased = accessDeath.pages[0].extract;
     var linkOfDeceased = accessDeath.pages[0].content_urls.desktop.page;
-    //creates elements based on the data about the daily death
+    
     var deathBox = document.querySelector('#death-box')
+
     // div element to hold died on this day data
     var box = document.createElement('div')
     box.setAttribute('id', 'death-box-content')
@@ -144,7 +167,6 @@ function dailyDeath(data) {
     deathBox.append(box)
     //refresh button
     var refresh = document.createElement('a')
-    refresh.setAttribute('id', 'death-refresh')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id','death-refresh')
@@ -163,7 +185,7 @@ function dailyDeath(data) {
     // "Daily Death" title element
     var deathTitle = document.createElement('h1')
     deathTitle.setAttribute('class', 'card-title')
-    deathTitle.textContent = "Daily Death!";
+    deathTitle.textContent = "Died on This Day:";
     headerDiv.append(deathTitle)
     // Name of deceased on this day
     var name = document.createElement('h2')
@@ -203,18 +225,20 @@ function dailyDeath(data) {
 
 // DAILY BIRTHS
 function dailyBirth(data) {
-    console.log(data)
-    // var ifBox = document.querySelector('#birth-box-content')
-    // if (ifBox) {
-    //     ifBox.remove();
-    // }
+    // removes box in case of a refresh or updated date search
+    var ifBox = document.querySelector('#birth-box-content')
+    if (ifBox) {
+        ifBox.remove();
+    }
+    // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.births.length);
     var accessBirth = data.births[randomizer];
     var nameOfBorn = accessBirth.pages[0].displaytitle;
     var descriptionOfBorn = accessBirth.pages[0].extract;
     var linkOfBorn = accessBirth.pages[0].content_urls.desktop.page;
-    //creates elements based on the data about the daily death
+
     var birthBox = document.querySelector('#birth-box')
+
     // div for born on this day data
     var box = document.createElement('div')
     box.setAttribute("id", "birth-box-content")
@@ -222,7 +246,6 @@ function dailyBirth(data) {
     birthBox.append(box)
     //refresh button
     var refresh = document.createElement('a')
-    refresh.setAttribute('id', 'birth-refresh')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id','birth-refresh')
@@ -241,7 +264,7 @@ function dailyBirth(data) {
     // title for daily birth
     var birthTitle = document.createElement('h1')
     birthTitle.setAttribute('class', 'card-title')
-    birthTitle.textContent = "Born on this day:";
+    birthTitle.textContent = "Born on This Day:";
     headerDiv.append(birthTitle)
     // name of person born on this day
     var name = document.createElement('h2')
@@ -282,20 +305,20 @@ function dailyBirth(data) {
 
 // HOLIDAY BOX contains holidays happening today around the world
 function holiday(data) {
-    console.log(data)
-    // var ifBox = document.querySelector('#holiday-content')
-    // if (ifBox) {
-    //     ifBox.remove();
-    // }
+    // removes content in case of refresh or updated date search
+    var ifBox = document.querySelector('#holiday-content')
+    if (ifBox) {
+        ifBox.remove();
+    }
+    // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.holidays.length);
     var accessHoliday = data.holidays[randomizer];
     var nameOfHoliday = accessHoliday.text;
     var descriptionOfHoliday = accessHoliday.pages[0].extract;
     var linkOfHoliday = accessHoliday.pages[0].content_urls.desktop.page;
-
-    //creates elements based on the data about todays holiday
+    
     var holidayBox = document.querySelector('#holiday-box')
-    console.log(holidayBox)
+
     // div for holiday data
     var box = document.createElement('div')
     box.setAttribute("id", "holiday-content")
@@ -303,7 +326,6 @@ function holiday(data) {
     holidayBox.append(box)
     //refresh button
     var refresh = document.createElement('a')
-    refresh.setAttribute('id', 'holiday-refresh')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id','holiday-refresh')
@@ -322,7 +344,7 @@ function holiday(data) {
     // title for holiday
     var holidayTitle = document.createElement('h1')
     holidayTitle.setAttribute('class', 'card-title')
-    holidayTitle.textContent = "Holiday ROAD:";
+    holidayTitle.textContent = "Holidays to celebrate on This Day:";
     headerDiv.append(holidayTitle)
     // name of holiday
     var name = document.createElement('h2')
@@ -361,13 +383,15 @@ function holiday(data) {
     contentDiv.append(link)
 }
 
-// EVENTS in history box! stores data in variables to be used in generated elements
+// EVENTS in history box! 
 function events(data) {
+    // removes box in case of refresh or updated date search
     console.log(data)
-    // var ifBox = document.querySelector('#event-content')
-    // if (ifBox) {
-    //     ifBox.remove();
-    // }
+    var ifBox = document.querySelector('#event-content')
+    if (ifBox) {
+        ifBox.remove();
+    }
+    // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.events.length);
     var accessEvent = data.events[randomizer];
     var nameOfEvent = accessEvent.text;
@@ -375,6 +399,7 @@ function events(data) {
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
     var eventBox = document.querySelector('#event-box')
+
     // div for events on this day data
     var box = document.createElement('div')
     box.setAttribute("id", "event-content")
@@ -382,7 +407,6 @@ function events(data) {
     eventBox.append(box)
     //refresh button
     var refresh = document.createElement('a')
-    refresh.setAttribute('id', 'event-refresh')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id','event-refresh')
@@ -401,7 +425,7 @@ function events(data) {
     // title for event
     var eventTitle = document.createElement('h1')
     eventTitle.setAttribute('class', 'card-title')
-    eventTitle.textContent = "On this day in History!";
+    eventTitle.textContent = "On this day in History:";
     headerDiv.append(eventTitle)
     // name of event
     var name = document.createElement('h2')
