@@ -90,7 +90,7 @@ function dailyDeath(data) {
     deathBox.append(box)
     // div for title header elements
     var headerDiv = document.createElement('div')
-    headerDiv.setAttribute('class','')
+    headerDiv.setAttribute('class', 'both-headers')
     box.appendChild(headerDiv)
     // "Daily Death" title element
     var deathTitle = document.createElement('h1')
@@ -102,15 +102,16 @@ function dailyDeath(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfDeceased;
     headerDiv.append(name)
-    // div for content
-    var contentDiv = document.createElement('div')
-    contentDiv.setAttribute('class','')
-    box.append(contentDiv)
     // image of the deceased
     var image = document.createElement('img')
     image.setAttribute('class', 'box-img')
     image.src = imageOfDeceasedSrc;
-    contentDiv.append(image)
+    headerDiv.append(image)
+
+    // div for content
+    var contentDiv = document.createElement('div')
+    contentDiv.setAttribute('class', '')
+    box.append(contentDiv)
     // description of deceased on this day
     var description = document.createElement('p')
     description.setAttribute('class', 'box-text')
@@ -150,11 +151,11 @@ function dailyBirth(data) {
     birthBox.append(box)
     // div for title header elements
     var headerDiv = document.createElement('div')
-    headerDiv.setAttribute('class','')
+    headerDiv.setAttribute('class', 'both-headers')
     box.appendChild(headerDiv)
     // title for daily birth
     var birthTitle = document.createElement('h1')
-    birthTitle.setAttribute('class', '')
+    birthTitle.setAttribute('class', 'card-title')
     birthTitle.textContent = "Born on this day:";
     headerDiv.append(birthTitle)
     // name of person born on this day
@@ -164,7 +165,7 @@ function dailyBirth(data) {
     headerDiv.append(name)
     // div for content
     var contentDiv = document.createElement('div')
-    contentDiv.setAttribute('class','')
+    contentDiv.setAttribute('class', '')
     box.append(contentDiv)
     // image of person born on this day
     var image = document.createElement('img')
@@ -212,7 +213,7 @@ function holiday(data) {
     holidayBox.append(box)
     // div for card title elements
     var headerDiv = document.createElement('div')
-    headerDiv.setAttribute('class','')
+    headerDiv.setAttribute('class', '')
     box.appendChild(headerDiv)
     // title for holiday
     var holidayTitle = document.createElement('h1')
@@ -226,7 +227,7 @@ function holiday(data) {
     headerDiv.append(name)
     //div for content
     var contentDiv = document.createElement('div')
-    contentDiv.setAttribute('class','')
+    contentDiv.setAttribute('class', '')
     box.append(contentDiv)
     // image of holiday
     var image = document.createElement('img')
@@ -272,7 +273,7 @@ function events(data) {
     eventBox.append(box)
     // div for header title elements
     var headerDiv = document.createElement('div')
-    headerDiv.setAttribute('class','')
+    headerDiv.setAttribute('class', '')
     box.appendChild(headerDiv)
     // title for event
     var eventTitle = document.createElement('h1')
@@ -286,7 +287,7 @@ function events(data) {
     headerDiv.append(name)
     // div for content
     var contentDiv = document.createElement('div')
-    contentDiv.setAttribute('class','')
+    contentDiv.setAttribute('class', '')
     box.append(contentDiv)
     // image of event
     var image = document.createElement('img')
