@@ -132,6 +132,7 @@ function dailyDeath(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfDeceased;
     headerDiv.append(name)
+    // checks to see if theres an image to display
     if (!accessDeath.pages[0].originalimage) {
         console.log("no image")
     } else {
@@ -200,6 +201,7 @@ function dailyBirth(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfBorn;
     headerDiv.append(name)
+    // checks to see if there is an image to display
     if (!accessBirth.pages[0].originalimage) {
         console.log("no image")
     } else {
@@ -270,6 +272,7 @@ function holiday(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfHoliday;
     headerDiv.append(name)
+    // checks to see if there is an image to display
     if (!accessHoliday.pages[0].originalimage) {
         console.log("no image")
     } else {
@@ -312,8 +315,6 @@ function events(data) {
     var accessEvent = data.events[randomizer];
     var nameOfEvent = accessEvent.text;
     var descriptionOfEvent = accessEvent.pages[0].extract;
-    // checks if there is an image to display
-    
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
     var eventBox = document.querySelector('#event-box')
@@ -340,7 +341,7 @@ function events(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfEvent;
     headerDiv.append(name)
-    //
+    // checks to see if there is an image to display
     if (!accessEvent.pages[0].originalimage) {
         console.log("no image")
     } else {
@@ -355,16 +356,6 @@ function events(data) {
         image.src = imageOfEventSrc;
         imageDiv.append(image)
     }
-    // // div for image
-    // var imageDiv = document.createElement('div')
-    // imageDiv.setAttribute('class','')
-    // boxHeader.append(imageDiv)
-    // // image of event
-    // var image = document.createElement('img')
-    // image.setAttribute('class', 'box-img')
-    // image.src = imageOfEventSrc;
-    // imageDiv.append(image)
-
     // div for content
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', '')
@@ -416,8 +407,8 @@ function displayNYT(data) {
     fictionHeader.setAttribute('class', 'book-header');
     nfictionHeader.setAttribute('class', 'book-header');
     // Fill header elements with text
-    fictionHeader.textContent = "New York Times #1 Bestselling Fiction Book";
-    nfictionHeader.textContent = "New York Times #1 Bestselling Non-Fiction Book";
+    fictionHeader.textContent = "NYT #1 Bestselling Fiction Book";
+    nfictionHeader.textContent = "NYT #1 Bestselling Non-Fiction Book";
     // Generate containers for each data point
     var fictionBoxTitle = document.createElement('h3');
     var fictionBoxAuthor = document.createElement('h4');
