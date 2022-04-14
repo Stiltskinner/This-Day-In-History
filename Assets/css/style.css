@@ -63,11 +63,14 @@ main {
     flex-direction: row;
     min-width: 100%;
     position: relative;
-    padding-bottom: 5px;
+}
+
+#wikimedia-cards-second-row .content-row{
+    padding-top: 0px;
 }
 
 .content-card {
-    margin:  1%;
+    /* margin:  1%; */
     /* flex: 1; */
     display: inline-block;
     box-sizing: border-box;
@@ -88,43 +91,56 @@ main {
 
 .card-title {
     font-size: 18px;
+
 }
 
 .box-text {
-    width: 80%;
+    display: flex;
+    width: 90%;
+    flex-wrap: nowrap;
+    text-align:left;
 }
 
 .box-img {
-    width: 60%;
-    min-width: 60%;
+    width: 40%;
+    min-width: 40%;
+    max-width: 40%;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: white;
+    height: 50%;
+    top: 10px;
+    right: 10px;
 }
 
 #date-picker-form {
-
+    background-color: #822B34;
+    border-radius: 15px;
+    border-color: white;
 }
 
 #birth-box {
-    margin-left: 1%;
-    width: 100%;
+    margin-left: 5px;
+    width: 99%;
     box-sizing: border-box;
 }
 
 #death-box{
-    margin-right: 1%;
-    width: 100%;
+    margin-right: 5px;
+    width: 99%;
     box-sizing: border-box;
 }
 
-#holiday-content {
-    margin-left: 1%;
-    width: 100%;
+#holiday-box {
+    margin-right: 5px;
+    width: 99%;
     box-sizing: border-box;
 }
 
-#event-content {
-    margin-right: 1%;
-    width: 100%;
+#event-box {
+    width: 99%;
     box-sizing: border-box;
+    margin-left: 5px;
 }
 
 #book-box {
@@ -136,11 +152,34 @@ main {
     min-height: 30vh;
 }
 
-#box-text {
-    max-width: 60px;
-}
-
 #wikimedia-cards, #wikimedia-cards-second-row {
     display: flex;
 }
 
+.UNKNOWN {
+    background-color: tomato;
+}
+
+.both-headers {
+    display: flex;
+    width: 60%;
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.both-headers h2 {
+    display: inline-block;
+    width: 55%;
+    height: 50%;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.both-headers  h1 {
+    display: block;
+    width: 55%;
+    height: 50%;
+    justify-content: left;
+    flex-direction: column;
+}
