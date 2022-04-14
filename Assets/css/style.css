@@ -358,6 +358,16 @@ main {
     flex-direction: column;
 }
 
+.refresh-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: max-content;
+}
+.refresh {
+    height: 20px;
+    width: auto;
+}
 /* Loading animation styles, most code from https://blog.hubspot.com/website/css-loading-animation */
 .loader {
     display: flex;

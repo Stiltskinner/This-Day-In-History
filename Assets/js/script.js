@@ -30,6 +30,34 @@ function getWikiData(month, day) {
                     dailyBirth(data);
                     holiday(data);
                     events(data);
+                    document.addEventListener("click", function(e){
+                        var target = e.target.id
+                        console.log(target)
+                        if (target === "death-refresh"){
+                            dailyDeath(data);
+                        }
+                    })
+                    document.addEventListener("click", function(e){
+                        var target = e.target.id
+                        console.log(target)
+                        if (target === "birth-refresh"){
+                            dailyBirth(data);
+                        }
+                    })
+                    document.addEventListener("click", function(e){
+                        var target = e.target.id
+                        console.log(target)
+                        if (target === "holiday-refresh"){
+                            holiday(data);
+                        }
+                    })
+                    document.addEventListener("click", function(e){
+                        var target = e.target.id
+                        console.log(target)
+                        if (target === "event-refresh"){
+                            events(data);
+                        }
+                    })
                 });
             }
         });
@@ -96,7 +124,7 @@ function dateSubmitHandler(event) {
     getWikiData(month, day);
 }
 
-//grabs daily death info from wikimedia
+//DAILY DEATH
 function dailyDeath(data) {
     // var ifBox = document.querySelector('#death-box-content')
     // if (ifBox) {
@@ -114,6 +142,16 @@ function dailyDeath(data) {
     box.setAttribute('id', 'death-box-content')
     box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
+    //refresh button
+    var refresh = document.createElement('a')
+    refresh.setAttribute('id', 'death-refresh')
+    refresh.setAttribute('class', 'refresh-container')
+    var refreshImage = document.createElement('img')
+    refreshImage.setAttribute('id','death-refresh')
+    refreshImage.setAttribute('class','refresh')
+    refreshImage.src = "Images/refresh.png"
+    refresh.append(refreshImage)
+    box.append(refresh)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
     boxHeader.setAttribute('class', 'box-header')
@@ -163,7 +201,7 @@ function dailyDeath(data) {
     contentDiv.append(link)
 }
 
-// grabs daily birth data from wikimedia
+// DAILY BIRTHS
 function dailyBirth(data) {
     console.log(data)
     // var ifBox = document.querySelector('#birth-box-content')
@@ -175,7 +213,6 @@ function dailyBirth(data) {
     var nameOfBorn = accessBirth.pages[0].displaytitle;
     var descriptionOfBorn = accessBirth.pages[0].extract;
     var linkOfBorn = accessBirth.pages[0].content_urls.desktop.page;
-
     //creates elements based on the data about the daily death
     var birthBox = document.querySelector('#birth-box')
     // div for born on this day data
@@ -183,6 +220,16 @@ function dailyBirth(data) {
     box.setAttribute("id", "birth-box-content")
     box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
+    //refresh button
+    var refresh = document.createElement('a')
+    refresh.setAttribute('id', 'birth-refresh')
+    refresh.setAttribute('class', 'refresh-container')
+    var refreshImage = document.createElement('img')
+    refreshImage.setAttribute('id','birth-refresh')
+    refreshImage.setAttribute('class','refresh')
+    refreshImage.src = "Images/refresh.png"
+    refresh.append(refreshImage)
+    box.append(refresh)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
     boxHeader.setAttribute('class', 'box-header')
@@ -254,6 +301,16 @@ function holiday(data) {
     box.setAttribute("id", "holiday-content")
     box.setAttribute('class', 'content-card-borders content-card')
     holidayBox.append(box)
+    //refresh button
+    var refresh = document.createElement('a')
+    refresh.setAttribute('id', 'holiday-refresh')
+    refresh.setAttribute('class', 'refresh-container')
+    var refreshImage = document.createElement('img')
+    refreshImage.setAttribute('id','holiday-refresh')
+    refreshImage.setAttribute('class','refresh')
+    refreshImage.src = "Images/refresh.png"
+    refresh.append(refreshImage)
+    box.append(refresh)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
     boxHeader.setAttribute('class', 'box-header')
@@ -304,7 +361,7 @@ function holiday(data) {
     contentDiv.append(link)
 }
 
-// events in history box! stores data in variables to be used in generated elements
+// EVENTS in history box! stores data in variables to be used in generated elements
 function events(data) {
     console.log(data)
     // var ifBox = document.querySelector('#event-content')
@@ -323,6 +380,16 @@ function events(data) {
     box.setAttribute("id", "event-content")
     box.setAttribute('class', 'content-card-borders content-card')
     eventBox.append(box)
+    //refresh button
+    var refresh = document.createElement('a')
+    refresh.setAttribute('id', 'event-refresh')
+    refresh.setAttribute('class', 'refresh-container')
+    var refreshImage = document.createElement('img')
+    refreshImage.setAttribute('id','event-refresh')
+    refreshImage.setAttribute('class','refresh')
+    refreshImage.src = "Images/refresh.png"
+    refresh.append(refreshImage)
+    box.append(refresh)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
     boxHeader.setAttribute('class', 'box-header')
@@ -516,3 +583,4 @@ init();
 // Event Listeners
 // Fires when the user submits the date picker
 datePickerForm.addEventListener("submit", dateSubmitHandler);
+
