@@ -1,3 +1,5 @@
+/* General attributes */
+
 :root {
     --main-bg-color: #e5d7ca;
     --card-border-color: #822B34;
@@ -11,6 +13,16 @@
 html {
     margin: 0;
     width: 100%;
+}
+
+a {
+    color: white;
+    background-color: var(--card-border-color);
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 body {
@@ -41,7 +53,8 @@ main {
 }
 
 
-/* The purpose of the classes is to share styling between multiple elements, all of whom will  */
+/* Sets up consistent styling between different boxes */
+
 .content-card-borders {
     border-style: solid;
     background-color: #2A3245;
@@ -63,10 +76,6 @@ main {
     flex-direction: row;
     min-width: 100%;
     position: relative;
-}
-
-#wikimedia-cards-second-row .content-row{
-    padding-top: 0px;
 }
 
 .content-card {
@@ -94,6 +103,10 @@ main {
 
 }
 
+.card-header {
+    font-weight: 300;
+}
+
 .box-text {
     display: flex;
     width: 90%;
@@ -111,12 +124,39 @@ main {
     height: 50%;
     top: 10px;
     right: 10px;
+    height: fit-content;
 }
 
 #date-picker-form {
     background-color: #822B34;
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 25px;
     border-color: white;
+    border-width: 5px;
+    color: var(--card-bg-color);
+    width: fit-content;
+}
+
+#date-picker {
+    background-color: #2A3245;
+    border-radius: 15px;
+    border-color: var(--main-bg-color);
+    width: 50%;
+    color: white;
+}
+
+#date-picker-form button {
+    border-radius: 15px;
+    background-color: #2A3245;
+    width: 44%;
+    border-style:solid;
+    border-color: white;
+    color: white;
+    vertical-align: middle;
+}
+
+#wikimedia-cards-second-row .content-row{
+    padding-top: 0px;
 }
 
 #birth-box {
@@ -143,21 +183,56 @@ main {
     margin-left: 5px;
 }
 
-#book-box {
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: column;
-    width: 100%;
-    padding-top: 20px;
-    min-height: 30vh;
-}
-
 #wikimedia-cards, #wikimedia-cards-second-row {
     display: flex;
 }
 
-.UNKNOWN {
-    background-color: tomato;
+#book-box {
+    display: inline-block;
+    box-sizing: border-box;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+    min-height: 40vh;
+    max-height: 40vh;
+}
+
+.book-sec {
+    display: inline-flex;
+    min-height: 40vh;
+    max-height: 40vh;
+}
+
+#fic-sec {
+    min-width: 45%;
+}
+
+#non-fic-sec {
+    min-width: 45%;
+}
+
+.book-header {
+    width: 35%;
+}
+
+.book-author {
+
+}
+
+.book-pic img {
+    display: flex;
+    min-width: 15%;
+    min-height: 25%;
+    max-width: 15%;
+    max-height: 25%;
+}
+
+.book-text {
+
+}
+
+.book-url {
+
 }
 
 .both-headers {
