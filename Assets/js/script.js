@@ -75,13 +75,7 @@ function dailyDeath(data) {
     var accessDeath = data.deaths[randomizer];
     var nameOfDeceased = accessDeath.pages[0].displaytitle;
     var descriptionOfDeceased = accessDeath.pages[0].extract;
-    if (!accessDeath.pages[0].originalimage) {
-        console.log("no image")
-    } else {
-        var imageOfDeceasedSrc = accessDeath.pages[0].originalimage.source;
-    }
     var linkOfDeceased = accessDeath.pages[0].content_urls.desktop.page;
-
     //creates elements based on the data about the daily death
     var deathBox = document.querySelector('#death-box')
     // div element to hold died on this day data
@@ -89,10 +83,14 @@ function dailyDeath(data) {
     box.setAttribute('id', 'death-box-content')
     box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
+    // box header for all the elements at the top of the box
+    var boxHeader = document.createElement('div')
+    boxHeader.setAttribute('class','')
+    box.append(boxHeader)
     // div for title header elements
     var headerDiv = document.createElement('div')
     headerDiv.setAttribute('class', 'both-headers')
-    box.appendChild(headerDiv)
+    boxHeader.append(headerDiv)
     // "Daily Death" title element
     var deathTitle = document.createElement('h1')
     deathTitle.setAttribute('class', 'card-title')
@@ -103,12 +101,20 @@ function dailyDeath(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfDeceased;
     headerDiv.append(name)
-    // image of the deceased
-    var image = document.createElement('img')
-    image.setAttribute('class', 'box-img')
-    image.src = imageOfDeceasedSrc;
-    headerDiv.append(image)
-
+    if (!accessDeath.pages[0].originalimage) {
+        console.log("no image")
+    } else {
+        var imageOfDeceasedSrc = accessDeath.pages[0].originalimage.source;
+        // image div
+        var imageDiv = document.createElement('div')
+        imageDiv.setAttribute('class','')
+        boxHeader.append(imageDiv)
+        // image of the deceased
+        var image = document.createElement('img')
+        image.setAttribute('class', 'box-img')
+        image.src = imageOfDeceasedSrc;
+        imageDiv.append(image)
+    }
     // div for content
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', '')
@@ -136,11 +142,6 @@ function dailyBirth(data) {
     var accessBirth = data.births[randomizer];
     var nameOfBorn = accessBirth.pages[0].displaytitle;
     var descriptionOfBorn = accessBirth.pages[0].extract;
-    if (!accessBirth.pages[0].originalimage) {
-        console.log("no image")
-    } else {
-        var imageOfBornSrc = accessBirth.pages[0].originalimage.source;
-    }
     var linkOfBorn = accessBirth.pages[0].content_urls.desktop.page;
 
     //creates elements based on the data about the daily death
@@ -150,10 +151,14 @@ function dailyBirth(data) {
     box.setAttribute("id", "birth-box-content")
     box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
+    // box header for all the elements at the top of the box
+    var boxHeader = document.createElement('div')
+    boxHeader.setAttribute('class','')
+    box.append(boxHeader)
     // div for title header elements
     var headerDiv = document.createElement('div')
     headerDiv.setAttribute('class', 'both-headers')
-    box.appendChild(headerDiv)
+    boxHeader.append(headerDiv)
     // title for daily birth
     var birthTitle = document.createElement('h1')
     birthTitle.setAttribute('class', 'card-title')
@@ -164,15 +169,25 @@ function dailyBirth(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfBorn;
     headerDiv.append(name)
+    if (!accessBirth.pages[0].originalimage) {
+        console.log("no image")
+    } else {
+        var imageOfBornSrc = accessBirth.pages[0].originalimage.source;
+        // image div
+        var imageDiv = document.createElement('div')
+        imageDiv.setAttribute('class','')
+        boxHeader.append(imageDiv)
+        // image of person born on this day
+        var image = document.createElement('img')
+        image.setAttribute('class', 'box-img')
+        image.src = imageOfBornSrc;
+        imageDiv.append(image)
+    }
+    
     // div for content
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', '')
     box.append(contentDiv)
-    // image of person born on this day
-    var image = document.createElement('img')
-    image.setAttribute('class', 'box-img')
-    image.src = imageOfBornSrc;
-    contentDiv.append(image)
     // description of person born on this day
     var description = document.createElement('p')
     description.setAttribute('class', 'box-text')
@@ -196,12 +211,6 @@ function holiday(data) {
     var accessHoliday = data.holidays[randomizer];
     var nameOfHoliday = accessHoliday.text;
     var descriptionOfHoliday = accessHoliday.pages[0].extract;
-    console.log(descriptionOfHoliday)
-    if (!accessHoliday.pages[0].originalimage) {
-        console.log("no image")
-    } else {
-        var imageOfHolidaySrc = accessHoliday.pages[0].originalimage.source;
-    }
     var linkOfHoliday = accessHoliday.pages[0].content_urls.desktop.page;
 
     //creates elements based on the data about todays holiday
@@ -212,10 +221,14 @@ function holiday(data) {
     box.setAttribute("id", "holiday-content")
     box.setAttribute('class', 'content-card-borders content-card')
     holidayBox.append(box)
+    // box header for all the elements at the top of the box
+    var boxHeader = document.createElement('div')
+    boxHeader.setAttribute('class','')
+    box.append(boxHeader)
     // div for card title elements
     var headerDiv = document.createElement('div')
     headerDiv.setAttribute('class', '')
-    box.appendChild(headerDiv)
+    boxHeader.append(headerDiv)
     // title for holiday
     var holidayTitle = document.createElement('h1')
     holidayTitle.setAttribute('class', 'card-title')
@@ -226,15 +239,25 @@ function holiday(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfHoliday;
     headerDiv.append(name)
+    if (!accessHoliday.pages[0].originalimage) {
+        console.log("no image")
+    } else {
+        var imageOfHolidaySrc = accessHoliday.pages[0].originalimage.source;
+        // image div
+        var imageDiv = document.createElement('div')
+        imageDiv.setAttribute('class', '')
+        boxHeader.append(imageDiv)
+        // image of holiday
+        var image = document.createElement('img')
+        image.setAttribute('class', 'box-img')
+        image.src = imageOfHolidaySrc;
+        imageDiv.append(image)
+    }
+    
     //div for content
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', '')
     box.append(contentDiv)
-    // image of holiday
-    var image = document.createElement('img')
-    image.setAttribute('class', 'box-img')
-    image.src = imageOfHolidaySrc;
-    contentDiv.append(image)
     // description of holiday
     var description = document.createElement('p')
     description.setAttribute('class', 'box-text')
@@ -259,11 +282,7 @@ function events(data) {
     var nameOfEvent = accessEvent.text;
     var descriptionOfEvent = accessEvent.pages[0].extract;
     // checks if there is an image to display
-    if (!accessEvent.pages[0].originalimage) {
-        console.log("no image")
-    } else {
-        var imageOfEventSrc = accessEvent.pages[0].originalimage.source;
-    }
+    
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
     var eventBox = document.querySelector('#event-box')
@@ -272,10 +291,14 @@ function events(data) {
     box.setAttribute("id", "event-content")
     box.setAttribute('class', 'content-card-borders content-card')
     eventBox.append(box)
+    // box header for all the elements at the top of the box
+    var boxHeader = document.createElement('div')
+    boxHeader.setAttribute('class','')
+    box.append(boxHeader)
     // div for header title elements
     var headerDiv = document.createElement('div')
     headerDiv.setAttribute('class', '')
-    box.appendChild(headerDiv)
+    boxHeader.append(headerDiv)
     // title for event
     var eventTitle = document.createElement('h1')
     eventTitle.setAttribute('class', 'card-title')
@@ -286,15 +309,35 @@ function events(data) {
     name.setAttribute('class', 'card-header')
     name.textContent = nameOfEvent;
     headerDiv.append(name)
+    //
+    if (!accessEvent.pages[0].originalimage) {
+        console.log("no image")
+    } else {
+        var imageOfEventSrc = accessEvent.pages[0].originalimage.source;
+         // div for image
+        var imageDiv = document.createElement('div')
+        imageDiv.setAttribute('class','')
+        boxHeader.append(imageDiv)
+        // image of event
+        var image = document.createElement('img')
+        image.setAttribute('class', 'box-img')
+        image.src = imageOfEventSrc;
+        imageDiv.append(image)
+    }
+    // // div for image
+    // var imageDiv = document.createElement('div')
+    // imageDiv.setAttribute('class','')
+    // boxHeader.append(imageDiv)
+    // // image of event
+    // var image = document.createElement('img')
+    // image.setAttribute('class', 'box-img')
+    // image.src = imageOfEventSrc;
+    // imageDiv.append(image)
+
     // div for content
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', '')
     box.append(contentDiv)
-    // image of event
-    var image = document.createElement('img')
-    image.setAttribute('class', 'box-img')
-    image.src = imageOfEventSrc;
-    contentDiv.append(image)
     // description of event
     var description = document.createElement('p')
     description.setAttribute('class', 'box-text')
