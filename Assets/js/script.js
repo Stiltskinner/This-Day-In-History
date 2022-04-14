@@ -47,8 +47,9 @@ function getNYTData(date) {
 // Sets up the datepicker element and formats it, prevents user from picking a date after current date
 $(function () {
     $("#date-picker").datepicker({
-        dateFormat: "yy-mm-dd",
-        maxDate: "+0d"
+        dateFormat: "mm-dd-yy",
+        maxDate: "+0d",
+        constraintInput: true
     });
 
 });
@@ -56,7 +57,7 @@ $(function () {
 //  Fires when the user presses submit after selecting a date. It calls get functions for api data for the selected date from NYT and wikimedia
 function dateSubmitHandler(event) {
     event.preventDefault();
-    var dateInput = datePicker.value;
+    var dateInput = $.datepicker.formatDate("yy-mm-dd", $("#date-picker").datepicker("getDate"));
     var dateArray = dateInput.split('-', 3);
     var month = dateArray[1];
     var day = dateArray[2];
