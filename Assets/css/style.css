@@ -89,7 +89,6 @@ main {
     min-height: 60vh;
     max-height: 60vh;
     overflow: scroll;
-    overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -100,11 +99,104 @@ main {
 
 .card-title {
     font-size: 18px;
-
+    align-items: flex-start;
 }
 
 .card-header {
     font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+}
+
+.both-headers {
+    height:250px;
+    display: block;
+    width: 100%;
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.box-header {
+    display: inline-flex;
+    height: 250px;
+}
+
+.both-headers h2 {
+    display: block;
+    width: 40%;
+    height: 10%;
+    justify-content: left;
+}
+
+.both-headers  h1 {
+    display: block;
+    width: 40%;
+    height: 10%;
+    justify-content: left;
+    flex-direction: column;
+}
+
+#event-box .both-headers {
+    height: 150px;
+}
+
+#holiday-box .both-headers {
+    height: 150px;
+}
+
+#event-box .box-header {
+    width: 100%;
+    display: block;
+    flex-direction: column;
+}
+
+#holiday-box .box-header {
+    width: 100%;
+    display: block;
+    flex-direction: column;
+}
+
+#event-box .box-header .both-headers h2 {
+    display: block;
+    width: 100%;
+    justify-content: center;
+
+}
+
+#event-box .box-header .both-headers  h1 {
+    display: block;
+    width: 100%;
+    height: 12%;
+    justify-content: left;
+    flex-direction: column;
+}
+
+#holiday-box .box-header .both-headers h2 {
+    display: block;
+    width: 100%;
+    justify-content: center;
+}
+
+#holiday-box .box-header .both-headers  h1 {
+    display: block;
+    width: 100%;
+    height: 12%;
+    justify-content: left;
+    flex-direction: column;
+}
+
+#holiday-box .box-header .box-img {
+    align-items: center;
+    width: 300px;
+}
+
+#holiday-box .box-text {
+    
+}
+
+#event-box .box-text {
+    
 }
 
 .box-text {
@@ -112,19 +204,22 @@ main {
     width: 90%;
     flex-wrap: nowrap;
     text-align:left;
+    position: relative;
 }
 
 .box-img {
-    width: 40%;
-    min-width: 40%;
-    max-width: 40%;
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-items: baseline;
+}
+
+.box-img > img {
+    min-width: 70%;
+    max-width: 70%;
     border-radius: 15px;
     border-style: solid;
     border-color: white;
-    height: 50%;
-    top: 10px;
-    right: 10px;
-    height: fit-content;
 }
 
 #date-picker-form {
@@ -160,27 +255,27 @@ main {
 }
 
 #birth-box {
-    margin-left: 5px;
+    margin-right: 5px;
     width: 99%;
     box-sizing: border-box;
 }
 
 #death-box{
-    margin-right: 5px;
+    margin-left: 5px;
     width: 99%;
     box-sizing: border-box;
 }
 
 #holiday-box {
-    margin-right: 5px;
+    margin-left: 5px;
     width: 99%;
     box-sizing: border-box;
 }
 
 #event-box {
+    margin-right: 5px;
     width: 99%;
     box-sizing: border-box;
-    margin-left: 5px;
 }
 
 #wikimedia-cards, #wikimedia-cards-second-row {
@@ -201,16 +296,19 @@ main {
     display: inline-flex;
     min-height: 40vh;
     max-height: 40vh;
+    min-width: 45%;
+    max-width: 45%;
+
 }
 
-#fic-sec {
-    min-width: 45%;
+/* #fic-sec {
 }
 
 #non-fic-sec {
     min-width: 45%;
+    max-width: 45%;
 }
-
+ */
 .book-header {
     width: 35%;
 }
@@ -228,7 +326,8 @@ main {
 }
 
 .book-text {
-
+    overflow: scroll;
+    width: 100%;
 }
 
 .book-url {

@@ -116,7 +116,7 @@ function dailyDeath(data) {
     deathBox.append(box)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
-    boxHeader.setAttribute('class','')
+    boxHeader.setAttribute('class', 'box-header')
     box.append(boxHeader)
     // div for title header elements
     var headerDiv = document.createElement('div')
@@ -139,11 +139,11 @@ function dailyDeath(data) {
         var imageOfDeceasedSrc = accessDeath.pages[0].originalimage.source;
         // image div
         var imageDiv = document.createElement('div')
-        imageDiv.setAttribute('class','')
+        imageDiv.setAttribute('class', 'box-img')
         boxHeader.append(imageDiv)
         // image of the deceased
         var image = document.createElement('img')
-        image.setAttribute('class', 'box-img')
+        image.setAttribute('class', '')
         image.src = imageOfDeceasedSrc;
         imageDiv.append(image)
     }
@@ -185,7 +185,7 @@ function dailyBirth(data) {
     birthBox.append(box)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
-    boxHeader.setAttribute('class','')
+    boxHeader.setAttribute('class', 'box-header')
     box.append(boxHeader)
     // div for title header elements
     var headerDiv = document.createElement('div')
@@ -208,15 +208,15 @@ function dailyBirth(data) {
         var imageOfBornSrc = accessBirth.pages[0].originalimage.source;
         // image div
         var imageDiv = document.createElement('div')
-        imageDiv.setAttribute('class','')
+        imageDiv.setAttribute('class', 'box-img')
         boxHeader.append(imageDiv)
         // image of person born on this day
         var image = document.createElement('img')
-        image.setAttribute('class', 'box-img')
+        image.setAttribute('class', '')
         image.src = imageOfBornSrc;
         imageDiv.append(image)
     }
-    
+
     // div for content
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', '')
@@ -256,11 +256,11 @@ function holiday(data) {
     holidayBox.append(box)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
-    boxHeader.setAttribute('class','')
+    boxHeader.setAttribute('class', 'box-header')
     box.append(boxHeader)
     // div for card title elements
     var headerDiv = document.createElement('div')
-    headerDiv.setAttribute('class', '')
+    headerDiv.setAttribute('class', 'both-headers')
     boxHeader.append(headerDiv)
     // title for holiday
     var holidayTitle = document.createElement('h1')
@@ -279,15 +279,15 @@ function holiday(data) {
         var imageOfHolidaySrc = accessHoliday.pages[0].originalimage.source;
         // image div
         var imageDiv = document.createElement('div')
-        imageDiv.setAttribute('class', '')
+        imageDiv.setAttribute('class', 'box-img')
         boxHeader.append(imageDiv)
         // image of holiday
         var image = document.createElement('img')
-        image.setAttribute('class', 'box-img')
+        image.setAttribute('class', '')
         image.src = imageOfHolidaySrc;
         imageDiv.append(image)
     }
-    
+
     //div for content
     var contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', '')
@@ -325,11 +325,11 @@ function events(data) {
     eventBox.append(box)
     // box header for all the elements at the top of the box
     var boxHeader = document.createElement('div')
-    boxHeader.setAttribute('class','')
+    boxHeader.setAttribute('class', 'box-header')
     box.append(boxHeader)
     // div for header title elements
     var headerDiv = document.createElement('div')
-    headerDiv.setAttribute('class', '')
+    headerDiv.setAttribute('class', 'both-headers')
     boxHeader.append(headerDiv)
     // title for event
     var eventTitle = document.createElement('h1')
@@ -346,13 +346,13 @@ function events(data) {
         console.log("no image")
     } else {
         var imageOfEventSrc = accessEvent.pages[0].originalimage.source;
-         // div for image
+        // div for image
         var imageDiv = document.createElement('div')
-        imageDiv.setAttribute('class','')
+        imageDiv.setAttribute('class', 'box-img')
         boxHeader.append(imageDiv)
         // image of event
         var image = document.createElement('img')
-        image.setAttribute('class', 'box-img')
+        image.setAttribute('class', '')
         image.src = imageOfEventSrc;
         imageDiv.append(image)
     }
