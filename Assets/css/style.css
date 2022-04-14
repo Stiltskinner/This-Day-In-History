@@ -393,6 +393,16 @@ main {
 
 
 
+.refresh-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: max-content;
+}
+.refresh {
+    height: 25px;
+    width: auto;
+}
 /* Loading animation styles, most code from https://blog.hubspot.com/website/css-loading-animation */
 .loader {
     display: flex;
@@ -436,6 +446,17 @@ main {
   .wave:nth-child(10) {
     animation-delay: 0.9s;
   }
+
+/* animation by Ged Kirkham https://gedkirkham.dev/blog/post/loading-icon-button-tutorial.html */
+.refresh-start {
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: running;
+}
+    
+    
   
   @keyframes wave {
     0% {
@@ -448,3 +469,10 @@ main {
       transform: scale(0);
     }
   }
+
+  @keyframes rotate {
+
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+    
+    }
