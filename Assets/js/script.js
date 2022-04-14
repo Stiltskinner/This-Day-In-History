@@ -337,13 +337,9 @@ function events(data) {
     // link to wikipedia page for event
     var link = document.createElement('a')
     link.setAttribute('href', linkOfEvent)
-    link.setAttribute('id', 'dialog')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
-$( function() {
-    $( "#dialog" ).dialog();
-  } );
 
 function displayNYT(data) {
     var ifFictionBox = document.querySelector('#fic-sec');
