@@ -124,83 +124,22 @@ main {
 
 .both-headers h2 {
     display: block;
-    width: 40%;
-    height: 10%;
-    justify-content: left;
+    width: 100%;
+    height: 12%;
+    text-align: center;
+    font-weight: 500;
 }
 
 .both-headers  h1 {
     display: block;
-    width: 40%;
-    height: 10%;
-    justify-content: left;
-    flex-direction: column;
-}
-
-#event-box .both-headers {
-    height: 150px;
-}
-
-#holiday-box .both-headers {
-    height: 150px;
-}
-
-#event-box .box-header {
-    width: 100%;
-    display: block;
-    flex-direction: column;
-}
-
-#holiday-box .box-header {
-    width: 100%;
-    display: block;
-    flex-direction: column;
-}
-
-#event-box .box-header .both-headers h2 {
-    display: block;
-    width: 100%;
-    justify-content: center;
-
-}
-
-#event-box .box-header .both-headers  h1 {
-    display: block;
     width: 100%;
     height: 12%;
     justify-content: left;
     flex-direction: column;
-}
-
-#holiday-box .box-header .both-headers h2 {
-    display: block;
-    width: 100%;
-    justify-content: center;
-}
-
-#holiday-box .box-header .both-headers  h1 {
-    display: block;
-    width: 100%;
-    height: 12%;
-    justify-content: left;
-    flex-direction: column;
-}
-
-#holiday-box .box-header .box-img {
-    align-items: center;
-    width: 300px;
-}
-
-#holiday-box .box-text {
-    
-}
-
-#event-box .box-text {
-    
 }
 
 .box-text {
-    display: flex;
+    display: block;
     width: 90%;
     flex-wrap: nowrap;
     text-align:left;
@@ -208,13 +147,14 @@ main {
 }
 
 .box-img {
-    display: flex;
+    display: inline-block;
     width: 50%;
     align-items: center;
     justify-items: baseline;
 }
 
 .box-img > img {
+    display: block;
     min-width: 70%;
     max-width: 70%;
     border-radius: 15px;
@@ -345,7 +285,7 @@ main {
 .both-headers h2 {
     display: inline-block;
     width: 55%;
-    height: 50%;
+    /* height: 50%; */
     justify-content: left;
     flex-direction: column;
 }
@@ -353,10 +293,105 @@ main {
 .both-headers  h1 {
     display: block;
     width: 55%;
-    height: 50%;
+    /* height: 50%; */
     justify-content: left;
     flex-direction: column;
 }
+
+#event-box .both-headers {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+#holiday-box .both-headers {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+#event-box .box-header {
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    height: auto;
+}
+
+#holiday-box .box-header {
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    height: auto;
+}
+
+#event-box .box-header .both-headers h2 {
+    display: block;
+    width: 100%;
+    justify-content: center;
+
+}
+
+#event-box .box-header .both-headers  h1 {
+    display: block;
+    width: 100%;
+    justify-content: left;
+    flex-direction: column;
+    margin-top: -10px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#holiday-box .box-header .both-headers h2 {
+    display: block;
+    width: 100%;
+    justify-content: center;
+}
+
+#holiday-box .box-header .both-headers  h1 {
+    display: block;
+    width: 100%;
+    justify-content: left;
+    flex-direction: column;
+    margin-top: -10px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#holiday-box .box-header .box-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#event-box .box-header .box-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#holiday-box .box-header .box-img img {
+    justify-content: center;
+    width: 25%;
+}
+
+#event-box .box-header .box-img img {
+    justify-content: center;
+    width: 25%;
+}
+
+
+
+#holiday-box .box-text {
+    
+}
+
+#event-box .box-text {
+    
+}
+
+
 
 /* Loading animation styles, most code from https://blog.hubspot.com/website/css-loading-animation */
 .loader {
