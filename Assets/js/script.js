@@ -3,7 +3,7 @@
 var datePicker = document.querySelector('#date-picker');
 var datePickerForm = document.querySelector('#date-picker-form');
 var selectedDate;
-var wikiCardContainer = document.querySelector('#wikimedia-cards');
+var mainContent = document.querySelector('#main-content');
 // bookBox is a placeholder div that serves as parent element for everything created in NYTDisplay function
 var bookBox = document.querySelector("#book-box");
 
@@ -486,7 +486,7 @@ function displayNYT(data) {
 function displayLoad() {
     var waveContainer = document.createElement('div');
     waveContainer.setAttribute('class','loader');
-    wikiCardContainer.appendChild(waveContainer);
+    mainContent.prepend(waveContainer);
     for (i=0; i<10; i++) {
         var wave = document.createElement('div');
         wave.setAttribute('class','wave');
