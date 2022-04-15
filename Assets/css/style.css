@@ -227,10 +227,7 @@ main {
 
 #date-picker-form button {
     border-radius: 15px;
-    background-color: #2A3245;
     width: 44%;
-    border-style:solid;
-    border-color: white;
     color: white;
     vertical-align: middle;
 }

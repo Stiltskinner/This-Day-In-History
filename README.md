@@ -64,6 +64,7 @@
 * [JQuery](https://jquery.com)
 * [JQueryUI](https://jqueryui.com/)
 * [Materialize](https://materializecss.com/)
+* [Moment](https://momentjs.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
