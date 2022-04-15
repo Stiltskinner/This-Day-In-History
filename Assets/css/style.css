@@ -15,16 +15,6 @@ html {
     width: 100%;
 }
 
-/* a {
-    color: white;
-    background-color: var(--card-border-color);
-    border-radius: 15px;
-    text-decoration: none;
-    padding: 5px 10px;
-    font-weight: bold;
-    letter-spacing: 1px;
-} */
-
 body {
     display: flex;
     flex-wrap: wrap;
@@ -51,7 +41,8 @@ main {
     margin: 0 -14px
 }
 #page-title h1 {
-    margin:10px 0;
+    width: 100%;
+    margin:10px 25px;
 }
 
 /* Sets up consistent styling between different boxes */
@@ -78,10 +69,10 @@ main {
 .content-card {
     display: inline-block;
     box-sizing: border-box;
-    padding: 20px;
-    width: 100%;
-    min-height: 28vh;
-    max-height: 28vh;
+    padding: 35px;
+    max-width: 100%;
+    min-height: 60vh;
+    max-height: 60vh;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -194,6 +185,7 @@ main {
     border-width: 5px;
     color: var(--card-bg-color);
     width: fit-content;
+    margin-right: 20px;
 }
 
 #date-picker {
@@ -201,9 +193,20 @@ main {
     border-radius: 25px;
     border-color: var(--main-bg-color);
     color: black;
-    margin: 0;
+    margin: 0 10px 0 0;
     height: 2em;
+    width: 8em;
     text-align: center;
+}
+
+#date-picker-form button {
+    border-radius: 15px;
+    background-color: #2A3245;
+    width: 44%;
+    border-style:solid;
+    border-color: white;
+    color: white;
+    vertical-align: middle;
 }
 
 /* FOR THE DATE PICKER PLACEHOLDER TEXT */
@@ -225,16 +228,6 @@ main {
     color: white;
 }
 
-#date-picker-form button {
-    border-radius: 15px;
-    width: 44%;
-    color: white;
-    vertical-align: middle;
-}
-
-#wikimedia-cards-second-row .content-row{
-    padding-top: 0px;
-}
 
 #birth-box {
     margin-right: 5px;
@@ -260,14 +253,11 @@ main {
     box-sizing: border-box;
 }
 
-#wikimedia-cards, #wikimedia-cards-second-row {
+#wikimedia-cards {
     display: flex;
     margin-top: 10px;
 }
 
-#wikimedia-cards-second-row {
-    margin-top: 3px;
-}
 .book-sec {
     display: inline-flex;
     min-height: 28vh;
@@ -414,8 +404,8 @@ main {
 }
 
 .refresh-container {
-    margin-top: -15px;
-    margin-left: -15px;
+    margin-top: -30px;
+    margin-left: -30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -430,6 +420,9 @@ main {
 .refresh:active {
     height: 23px;
     width:auto;
+}
+.refresh:hover {
+    cursor: pointer;
 }
 /* Loading animation styles, most code from https://blog.hubspot.com/website/css-loading-animation */
 .loader {
