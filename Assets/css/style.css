@@ -405,28 +405,19 @@ main {
 }
 
 .refresh-container {
-    margin-top: -22px;
-    margin-left: -25px;
+    margin-top: -15px;
+    margin-left: -15px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: start;
     width: max-content;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    position: sticky;
-    top: -10;
+    position: absolute;
 }
 .refresh {
     height: 25px;
     width: auto;
 }
 
-.refresh-container:hover {
-    box-shadow: inset 0px 0px 8px
-rgba(255, 255, 255, 0.45), 0 0 15px
-rgba(255, 255, 255, 0.469);
-}
 .refresh:active {
     height: 23px;
     width:auto;

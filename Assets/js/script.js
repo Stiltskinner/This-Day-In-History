@@ -167,7 +167,7 @@ function dailyDeath(data) {
     box.setAttribute('class', 'content-card-borders content-card')
     deathBox.append(box)
     //refresh button
-    var refresh = document.createElement('a')
+    var refresh = document.createElement('div')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id', 'death-refresh')
@@ -249,7 +249,7 @@ function dailyBirth(data) {
     box.setAttribute('class', 'content-card-borders content-card')
     birthBox.append(box)
     //refresh button
-    var refresh = document.createElement('a')
+    var refresh = document.createElement('div')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id', 'birth-refresh')
@@ -331,7 +331,7 @@ function holiday(data) {
     box.setAttribute('class', 'content-card-borders content-card')
     holidayBox.append(box)
     //refresh button
-    var refresh = document.createElement('a')
+    var refresh = document.createElement('div')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id', 'holiday-refresh')
@@ -415,7 +415,7 @@ function events(data) {
     box.setAttribute('class', 'content-card-borders content-card')
     eventBox.append(box)
     //refresh button
-    var refresh = document.createElement('a')
+    var refresh = document.createElement('div')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
     refreshImage.setAttribute('id', 'event-refresh')
