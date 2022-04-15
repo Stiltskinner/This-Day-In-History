@@ -218,6 +218,7 @@ function dailyDeath(data) {
     var link = document.createElement('a')
     link.setAttribute('href', linkOfDeceased)
     link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = 'Learn more!';
     contentDiv.append(link)
 }
@@ -300,6 +301,7 @@ function dailyBirth(data) {
     var link = document.createElement('a')
     link.setAttribute('href', linkOfBorn)
     link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -381,6 +383,7 @@ function holiday(data) {
     var link = document.createElement('a')
     link.setAttribute('href', linkOfHoliday)
     link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -395,8 +398,9 @@ function events(data) {
     }
     // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.events.length);
-    var accessEvent = data.selected[randomizer];
+    var accessEvent = data.events[randomizer];
     var nameOfEvent = accessEvent.text;
+    var yearOfEvent = accessEvent.year;
     var descriptionOfEvent = accessEvent.pages[0].extract;
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
@@ -429,6 +433,11 @@ function events(data) {
     eventTitle.setAttribute('class', 'card-title')
     eventTitle.textContent = "On this day in History:";
     headerDiv.append(eventTitle)
+    // year of event
+    var eventYear = document.createElement('h6')
+    eventYear.setAttribute('class', '')
+    eventYear.textContent = yearOfEvent;
+    headerDiv.append(eventYear)
     // name of event
     var name = document.createElement('h2')
     name.setAttribute('class', 'card-header')
@@ -462,6 +471,7 @@ function events(data) {
     var link = document.createElement('a')
     link.setAttribute('href', linkOfEvent)
     link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
