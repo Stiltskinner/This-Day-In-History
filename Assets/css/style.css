@@ -494,3 +494,9 @@ main {
     to {transform: rotate(360deg)}
     
     }
+
+    @media screen and (max-width:920px) {
+        .content-row {
+            flex-direction: column;
+        }
+    }
