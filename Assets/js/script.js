@@ -350,7 +350,7 @@ function holiday(data) {
     // title for holiday
     var holidayTitle = document.createElement('h1')
     holidayTitle.setAttribute('class', 'card-title')
-    holidayTitle.textContent = "Holidays to celebrate on This Day:";
+    holidayTitle.textContent = "Holidays to celebrate on This Day";
     headerDiv.append(holidayTitle)
     // name of holiday
     var name = document.createElement('h2')

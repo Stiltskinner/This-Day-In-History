@@ -149,14 +149,24 @@ main {
     justify-items: baseline;
 }
 
-.box-img > img {
+/* .box-img > img {
     display: block;
-    min-width: 70%;
-    max-width: 100%;
+    min-width: auto;
+    max-width: auto;
     max-height: 250px;
     border-radius: 15px;
     border-style: solid;
     border-color: white;
+    object-fit:contain;
+} */
+
+.box-img > img {
+    display: block;
+    min-width: auto;
+    max-width: auto;
+    max-height: 250px;
+    border-style: none;
+    object-fit:contain;
 }
 
 .both-headers {
