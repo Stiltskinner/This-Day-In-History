@@ -15,7 +15,7 @@ html {
     width: 100%;
 }
 
-a {
+/* a {
     color: white;
     background-color: var(--card-border-color);
     border-radius: 15px;
@@ -23,7 +23,7 @@ a {
     padding: 5px 10px;
     font-weight: bold;
     letter-spacing: 1px;
-}
+} */
 
 body {
     display: flex;
@@ -36,20 +36,22 @@ body {
     background-position: center;
 }
 
-header {
-    display: flex;
-    justify-content:left ;
-    width: 98%;
-    min-width: 98%;
-    box-sizing: border-box;
-    max-height: 30vh;
-    min-height: 15vh;
-}
 
 main {
-    width: 98%;
+    width: 95vw;
     padding-bottom: 10px;
     flex-direction: column;
+}
+
+#page-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 95vw;
+    margin: 0 -14px
+}
+#page-title h1 {
+    margin:10px 0;
 }
 
 /* Sets up consistent styling between different boxes */
@@ -61,7 +63,6 @@ main {
     border-color: #822B34;
     border-width: 12px;
     color: white;
-    padding: 20px;
 }
 
 .content-row {
@@ -172,6 +173,7 @@ main {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -183,6 +185,9 @@ main {
 }
 
 #date-picker-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #822B34;
     padding: 10px;
     border-radius: 25px;
@@ -198,7 +203,6 @@ main {
     border-color: var(--main-bg-color);
     width: 50%;
     color: white;
-    text-align: center;
 }
 
 /* FOR THE DATE PICKER PLACEHOLDER TEXT */
@@ -403,8 +407,6 @@ main {
     justify-content: center;
     width: 25%;
 }
-
-
 
 #holiday-box .box-text {
     
