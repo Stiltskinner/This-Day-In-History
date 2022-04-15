@@ -154,7 +154,8 @@ function dailyDeath(data) {
     // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.deaths.length);
     var accessDeath = data.deaths[randomizer];
-    var nameOfDeceased = accessDeath.pages[0].displaytitle;
+    var nameOfDeceased = accessDeath.text;
+    var yearOfDeceased = accessDeath.year;
     var descriptionOfDeceased = accessDeath.pages[0].extract;
     var linkOfDeceased = accessDeath.pages[0].content_urls.desktop.page;
 
@@ -185,7 +186,7 @@ function dailyDeath(data) {
     // "Daily Death" title element
     var deathTitle = document.createElement('h1')
     deathTitle.setAttribute('class', 'card-title')
-    deathTitle.textContent = "Died on This Day:";
+    deathTitle.textContent = "Died on This Day: " + yearOfDeceased;
     headerDiv.append(deathTitle)
     // Name of deceased on this day
     var name = document.createElement('h2')
@@ -219,6 +220,7 @@ function dailyDeath(data) {
     // link to wikipedia page the deceased on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfDeceased)
+    link.setAttribute('target','_blank')
     link.textContent = 'Learn more!';
     contentDiv.append(link)
 }
@@ -233,7 +235,8 @@ function dailyBirth(data) {
     // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.births.length);
     var accessBirth = data.births[randomizer];
-    var nameOfBorn = accessBirth.pages[0].displaytitle;
+    var nameOfBorn = accessBirth.text;
+    var yearOfBorn = accessBirth.year;
     var descriptionOfBorn = accessBirth.pages[0].extract;
     var linkOfBorn = accessBirth.pages[0].content_urls.desktop.page;
 
@@ -264,7 +267,7 @@ function dailyBirth(data) {
     // title for daily birth
     var birthTitle = document.createElement('h1')
     birthTitle.setAttribute('class', 'card-title')
-    birthTitle.textContent = "Born on This Day:";
+    birthTitle.textContent = "Born on This Day: " + yearOfBorn;
     headerDiv.append(birthTitle)
     // name of person born on this day
     var name = document.createElement('h2')
@@ -299,6 +302,7 @@ function dailyBirth(data) {
     // link to wikipedia page for person born on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfBorn)
+    link.setAttribute('target','_blank')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -379,6 +383,7 @@ function holiday(data) {
     // link to holiday wikipedia page
     var link = document.createElement('a')
     link.setAttribute('href', linkOfHoliday)
+    link.setAttribute('target','_blank')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -393,7 +398,7 @@ function events(data) {
     }
     // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.events.length);
-    var accessEvent = data.events[randomizer];
+    var accessEvent = data.selected[randomizer];
     var nameOfEvent = accessEvent.text;
     var descriptionOfEvent = accessEvent.pages[0].extract;
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
@@ -459,6 +464,7 @@ function events(data) {
     // link to wikipedia page for event
     var link = document.createElement('a')
     link.setAttribute('href', linkOfEvent)
+    link.setAttribute('target','_blank')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -544,11 +550,11 @@ function displayNYT(data) {
     // Fill each data element with appropriate data
     fictionBoxTitle.textContent = fictionTitle;
     fictionBoxAuthor.textContent = fictionAuthor;
-    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `">Amazon Store Page</a>`
+    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `" target="_blank">Amazon Store Page</a>`
     fictionBoxDescription.textContent = fictionDescription;
     nfictionBoxTitle.textContent = nfictionTitle;
     nfictionBoxAuthor.textContent = nfictionAuthor;
-    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `">Amazon Store Page</a>`;
+    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `" target="_blank">Amazon Store Page</a>`;
     nfictionBoxDescription.textContent = nfictionDescription;
     // Append fiction and nfiction headers to parent containers
     fictionBox.appendChild(fictionHeader);
