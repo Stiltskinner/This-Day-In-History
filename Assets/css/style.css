@@ -69,10 +69,10 @@ main {
 .content-card {
     display: inline-block;
     box-sizing: border-box;
-    padding: 35px;
-    max-width: 100%;
-    min-height: 60vh;
-    max-height: 60vh;
+    padding: 20px;
+    width: 100%;
+    min-height: 28vh;
+    max-height: 28vh;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -250,7 +250,7 @@ main {
     box-sizing: border-box;
 }
 
-#wikimedia-cards {
+.wikimedia-cards {
     display: flex;
     margin-top: 10px;
 }
@@ -401,8 +401,8 @@ main {
 }
 
 .refresh-container {
-    margin-top: -30px;
-    margin-left: -30px;
+    margin-top: -20px;
+    margin-left: -22px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
