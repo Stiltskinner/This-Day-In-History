@@ -24,6 +24,7 @@ function getWikiData(month, day) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
+                    console.log(data)
                     removeLoad();
                     dailyDeath(data);
                     dailyBirth(data);
@@ -105,7 +106,6 @@ document.addEventListener("click", function(e){
     setTimeout(function () {
         refreshIcon.addEventListener("animationiteration", function () {
         refreshIcon.setAttribute("class", "refresh")
-        refreshIcon.removeEventListener("animationiteration")
             });
         }, 100)
     }
@@ -116,7 +116,6 @@ document.addEventListener("click", function(e){
     setTimeout(function () {
         refreshIcon.addEventListener("animationiteration", function () {
         refreshIcon.setAttribute("class", "refresh")
-        refreshIcon.removeEventListener("animationiteration")
             });
         }, 100)
     }
@@ -127,7 +126,6 @@ document.addEventListener("click", function(e){
     setTimeout(function () {
         refreshIcon.addEventListener("animationiteration", function () {
         refreshIcon.setAttribute("class", "refresh")
-        refreshIcon.removeEventListener("animationiteration")
             });
         }, 100)
     }
@@ -138,7 +136,6 @@ document.addEventListener("click", function(e){
     setTimeout(function () {
         refreshIcon.addEventListener("animationiteration", function () {
         refreshIcon.setAttribute("class", "refresh")
-        refreshIcon.removeEventListener("animationiteration")
             });
         }, 100)
     }
