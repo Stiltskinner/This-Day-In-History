@@ -188,7 +188,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #822B34;
     padding: 10px;
     border-radius: 25px;
     border-color: white;
@@ -198,11 +197,13 @@ main {
 }
 
 #date-picker {
-    background-color: #2A3245;
-    border-radius: 15px;
+    background-color: white;
+    border-radius: 25px;
     border-color: var(--main-bg-color);
-    width: 50%;
     color: white;
+    margin: 0;
+    height: 2em;
+    text-align: center;
 }
 
 /* FOR THE DATE PICKER PLACEHOLDER TEXT */
