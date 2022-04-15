@@ -24,7 +24,6 @@ function getWikiData(month, day) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data)
                     removeLoad();
                     dailyDeath(data);
                     dailyBirth(data);
@@ -96,50 +95,54 @@ function dateSubmitHandler(event) {
     getWikiData(month, day);
 }
 // Refreshes the specific card that the user clicks the refresh icon on. This also animates each one individually when the user clicks.
-function refreshActivity(data){
-document.addEventListener("click", function(e){
-    var target = e.target.id
-    if (target === "death-refresh"){
-        dailyDeath(data);
-        var refreshIcon = document.querySelector('#death-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-    if (target === "birth-refresh"){
-        dailyBirth(data);
-        var refreshIcon = document.querySelector('#birth-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-    if (target === "holiday-refresh"){
-        holiday(data);
-        var refreshIcon = document.querySelector('#holiday-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-    if (target === "event-refresh"){
-        events(data);
-        var refreshIcon = document.querySelector('#event-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-})
+function refreshActivity(data) {
+    document.addEventListener("click", function (e) {
+        var target = e.target.id
+        if (target === "death-refresh") {
+            dailyDeath(data);
+            var refreshIcon = document.querySelector('#death-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+        if (target === "birth-refresh") {
+            dailyBirth(data);
+            var refreshIcon = document.querySelector('#birth-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+        if (target === "holiday-refresh") {
+            holiday(data);
+            var refreshIcon = document.querySelector('#holiday-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+        if (target === "event-refresh") {
+            events(data);
+            var refreshIcon = document.querySelector('#event-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+    })
 }
 //DAILY DEATH
 function dailyDeath(data) {
@@ -151,10 +154,11 @@ function dailyDeath(data) {
     // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.deaths.length);
     var accessDeath = data.deaths[randomizer];
-    var nameOfDeceased = accessDeath.pages[0].displaytitle;
+    var nameOfDeceased = accessDeath.text;
+    var yearOfDeceased = accessDeath.year;
     var descriptionOfDeceased = accessDeath.pages[0].extract;
     var linkOfDeceased = accessDeath.pages[0].content_urls.desktop.page;
-    
+
     var deathBox = document.querySelector('#death-box')
 
     // div element to hold died on this day data
@@ -166,8 +170,8 @@ function dailyDeath(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','death-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'death-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -182,7 +186,7 @@ function dailyDeath(data) {
     // "Daily Death" title element
     var deathTitle = document.createElement('h1')
     deathTitle.setAttribute('class', 'card-title')
-    deathTitle.textContent = "Died on This Day:";
+    deathTitle.textContent = "Died on This Day: " + yearOfDeceased;
     headerDiv.append(deathTitle)
     // Name of deceased on this day
     var name = document.createElement('h2')
@@ -216,6 +220,8 @@ function dailyDeath(data) {
     // link to wikipedia page the deceased on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfDeceased)
+    link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = 'Learn more!';
     contentDiv.append(link)
 }
@@ -230,7 +236,8 @@ function dailyBirth(data) {
     // data stored in variables according to the type of data retrieved
     var randomizer = Math.floor(Math.random() * data.births.length);
     var accessBirth = data.births[randomizer];
-    var nameOfBorn = accessBirth.pages[0].displaytitle;
+    var nameOfBorn = accessBirth.text;
+    var yearOfBorn = accessBirth.year;
     var descriptionOfBorn = accessBirth.pages[0].extract;
     var linkOfBorn = accessBirth.pages[0].content_urls.desktop.page;
 
@@ -245,8 +252,8 @@ function dailyBirth(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','birth-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'birth-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -261,7 +268,7 @@ function dailyBirth(data) {
     // title for daily birth
     var birthTitle = document.createElement('h1')
     birthTitle.setAttribute('class', 'card-title')
-    birthTitle.textContent = "Born on This Day:";
+    birthTitle.textContent = "Born on This Day: " + yearOfBorn;
     headerDiv.append(birthTitle)
     // name of person born on this day
     var name = document.createElement('h2')
@@ -296,6 +303,8 @@ function dailyBirth(data) {
     // link to wikipedia page for person born on this day
     var link = document.createElement('a')
     link.setAttribute('href', linkOfBorn)
+    link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -313,7 +322,7 @@ function holiday(data) {
     var nameOfHoliday = accessHoliday.text;
     var descriptionOfHoliday = accessHoliday.pages[0].extract;
     var linkOfHoliday = accessHoliday.pages[0].content_urls.desktop.page;
-    
+
     var holidayBox = document.querySelector('#holiday-box')
 
     // div for holiday data
@@ -325,8 +334,8 @@ function holiday(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','holiday-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'holiday-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -376,6 +385,8 @@ function holiday(data) {
     // link to holiday wikipedia page
     var link = document.createElement('a')
     link.setAttribute('href', linkOfHoliday)
+    link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -392,6 +403,7 @@ function events(data) {
     var randomizer = Math.floor(Math.random() * data.events.length);
     var accessEvent = data.events[randomizer];
     var nameOfEvent = accessEvent.text;
+    var yearOfEvent = accessEvent.year;
     var descriptionOfEvent = accessEvent.pages[0].extract;
     var linkOfEvent = accessEvent.pages[0].content_urls.desktop.page;
 
@@ -406,8 +418,8 @@ function events(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','event-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'event-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -424,6 +436,11 @@ function events(data) {
     eventTitle.setAttribute('class', 'card-title')
     eventTitle.textContent = "On this day in History:";
     headerDiv.append(eventTitle)
+    // year of event
+    var eventYear = document.createElement('h6')
+    eventYear.setAttribute('class', '')
+    eventYear.textContent = yearOfEvent;
+    headerDiv.append(eventYear)
     // name of event
     var name = document.createElement('h2')
     name.setAttribute('class', 'card-header')
@@ -456,6 +473,8 @@ function events(data) {
     // link to wikipedia page for event
     var link = document.createElement('a')
     link.setAttribute('href', linkOfEvent)
+    link.setAttribute('target','_blank')
+    link.setAttribute('class', 'waves-effect waves-light btn')
     link.textContent = "Learn more!";
     contentDiv.append(link)
 }
@@ -541,11 +560,11 @@ function displayNYT(data) {
     // Fill each data element with appropriate data
     fictionBoxTitle.textContent = fictionTitle;
     fictionBoxAuthor.textContent = fictionAuthor;
-    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `">Amazon Store Page</a>`
+    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `" target="_blank">Amazon Store Page</a>`
     fictionBoxDescription.textContent = fictionDescription;
     nfictionBoxTitle.textContent = nfictionTitle;
     nfictionBoxAuthor.textContent = nfictionAuthor;
-    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `">Amazon Store Page</a>`;
+    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `" target="_blank">Amazon Store Page</a>`;
     nfictionBoxDescription.textContent = nfictionDescription;
     // Append fiction and nfiction headers to parent containers
     fictionBox.appendChild(fictionHeader);
@@ -573,12 +592,12 @@ function displayNYT(data) {
 
 function displayLoad() {
     var waveContainer = document.createElement('div');
-    waveContainer.setAttribute('class','loader');
+    waveContainer.setAttribute('class', 'loader');
     mainContent.prepend(waveContainer);
-    for (i=0; i<10; i++) {
+    for (i = 0; i < 10; i++) {
         var wave = document.createElement('div');
-        wave.setAttribute('class','wave');
-        wave.setAttribute('id',`wave${i}`);
+        wave.setAttribute('class', 'wave');
+        wave.setAttribute('id', `wave${i}`);
         waveContainer.appendChild(wave);
     }
 }

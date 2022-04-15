@@ -52,7 +52,6 @@ main {
     flex-direction: column;
 }
 
-
 /* Sets up consistent styling between different boxes */
 
 .content-card-borders {
@@ -68,10 +67,7 @@ main {
 .content-row {
     width: 100%;
     box-sizing: border-box;
-    /* flex: 1; */
     display: inline-flex;
-    /* flex-wrap: nowrap; */
-    padding-top: 10px;
     justify-content: space-between;
     flex-direction: row;
     min-width: 100%;
@@ -79,13 +75,10 @@ main {
 }
 
 .content-card {
-    /* margin:  1%; */
-    /* flex: 1; */
     display: inline-block;
     box-sizing: border-box;
     padding: 20px;
     width: 100%;
-    /* position: relative; */
     min-height: 60vh;
     max-height: 60vh;
     overflow: scroll;
@@ -99,7 +92,6 @@ main {
 
 .card-title {
     font-size: 18px;
-    align-items: flex-start;
 }
 
 .card-header {
@@ -109,8 +101,7 @@ main {
 }
 
 .both-headers {
-    height:250px;
-    display: block;
+    display: flex;
     width: 100%;
     /* flex-wrap: nowrap; */
     flex-wrap: wrap;
@@ -118,32 +109,36 @@ main {
 }
 
 .box-header {
-    display: inline-flex;
+    display: flex;
     height: 250px;
 }
 
 .both-headers h2 {
-    display: block;
+    display: inline-block;
     width: 100%;
+    justify-content: left;
     height: 12%;
     text-align: center;
+    flex-direction: column;
     font-weight: 500;
 }
 
-.both-headers  h1 {
-    display: block;
+.both-headers h1 {
+    display: inline-block;
     width: 100%;
     height: 12%;
-    justify-content: left;
+    text-align: center;
+    justify-content: center;
     flex-direction: column;
 }
 
 .box-text {
     display: block;
-    width: 90%;
+    width: 100%;
     flex-wrap: nowrap;
     text-align:left;
     position: relative;
+    justify-content: center;
 }
 
 .box-img {
@@ -156,10 +151,25 @@ main {
 .box-img > img {
     display: block;
     min-width: 70%;
-    max-width: 70%;
+    max-width: 100%;
+    max-height: 250px;
     border-radius: 15px;
     border-style: solid;
     border-color: white;
+}
+
+.both-headers {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+.both-headers  h1 {
+    display: block;
+    /* height: 50%; */
+    justify-content: center;
+    flex-direction: column;
 }
 
 #date-picker-form {
@@ -177,6 +187,26 @@ main {
     border-radius: 15px;
     border-color: var(--main-bg-color);
     width: 50%;
+    color: white;
+    text-align: center;
+}
+
+/* FOR THE DATE PICKER PLACEHOLDER TEXT */
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+    color: slategrey;
+    opacity: 1;
+}
+
+/* Internet Explorer 10-11 */
+
+:-ms-input-placeholder { 
+    color: white;
+}
+
+/* Microsoft Edge */
+
+::-ms-input-placeholder {
     color: white;
 }
 
@@ -220,6 +250,11 @@ main {
 
 #wikimedia-cards, #wikimedia-cards-second-row {
     display: flex;
+    margin-top: 10px;
+}
+
+#wikimedia-cards-second-row {
+    margin-top: 3px;
 }
 
 #book-box {
@@ -227,7 +262,7 @@ main {
     box-sizing: border-box;
     flex-direction: column;
     width: 100%;
-    padding-top: 20px;
+    margin-top: 3px;
     min-height: 40vh;
     max-height: 40vh;
 }
@@ -274,30 +309,6 @@ main {
 
 }
 
-.both-headers {
-    display: flex;
-    width: 60%;
-    /* flex-wrap: nowrap; */
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.both-headers h2 {
-    display: inline-block;
-    width: 55%;
-    /* height: 50%; */
-    justify-content: left;
-    flex-direction: column;
-}
-
-.both-headers  h1 {
-    display: block;
-    width: 55%;
-    /* height: 50%; */
-    justify-content: left;
-    flex-direction: column;
-}
-
 #event-box .both-headers {
     width: 100%;
     display: block;
@@ -305,6 +316,8 @@ main {
 }
 
 #holiday-box .both-headers {
+    display: flex;
+    justify-content: center;
     width: 100%;
     display: block;
     height: auto;
@@ -331,7 +344,7 @@ main {
 
 }
 
-#event-box .box-header .both-headers  h1 {
+#event-box .box-header .both-headers h1 {
     display: block;
     width: 100%;
     justify-content: left;
@@ -348,10 +361,10 @@ main {
     justify-content: center;
 }
 
-#holiday-box .box-header .both-headers  h1 {
-    display: block;
+#holiday-box .box-header .both-headers h1 {
+    display: flex;
     width: 100%;
-    justify-content: left;
+    justify-content: center;
     flex-direction: column;
     margin-top: -10px;
     letter-spacing: 2px;
@@ -391,17 +404,32 @@ main {
     
 }
 
-
-
 .refresh-container {
+    margin-top: -22px;
+    margin-left: -25px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     width: max-content;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    position: sticky;
+    top: -10;
 }
 .refresh {
     height: 25px;
     width: auto;
+}
+
+.refresh-container:hover {
+    box-shadow: inset 0px 0px 8px
+rgba(255, 255, 255, 0.45), 0 0 15px
+rgba(255, 255, 255, 0.469);
+}
+.refresh:active {
+    height: 23px;
+    width:auto;
 }
 /* Loading animation styles, most code from https://blog.hubspot.com/website/css-loading-animation */
 .loader {
