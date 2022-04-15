@@ -24,7 +24,6 @@ function getWikiData(month, day) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data)
                     removeLoad();
                     dailyDeath(data);
                     dailyBirth(data);
@@ -96,50 +95,54 @@ function dateSubmitHandler(event) {
     getWikiData(month, day);
 }
 // Refreshes the specific card that the user clicks the refresh icon on. This also animates each one individually when the user clicks.
-function refreshActivity(data){
-document.addEventListener("click", function(e){
-    var target = e.target.id
-    if (target === "death-refresh"){
-        dailyDeath(data);
-        var refreshIcon = document.querySelector('#death-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-    if (target === "birth-refresh"){
-        dailyBirth(data);
-        var refreshIcon = document.querySelector('#birth-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-    if (target === "holiday-refresh"){
-        holiday(data);
-        var refreshIcon = document.querySelector('#holiday-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-    if (target === "event-refresh"){
-        events(data);
-        var refreshIcon = document.querySelector('#event-refresh')
-        refreshIcon.setAttribute('class','refresh-start refresh')
-    setTimeout(function () {
-        refreshIcon.addEventListener("animationiteration", function () {
-        refreshIcon.setAttribute("class", "refresh")
-            });
-        }, 100)
-    }
-})
+function refreshActivity(data) {
+    document.addEventListener("click", function (e) {
+        var target = e.target.id
+        if (target === "death-refresh") {
+            dailyDeath(data);
+            var refreshIcon = document.querySelector('#death-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+        if (target === "birth-refresh") {
+            dailyBirth(data);
+            var refreshIcon = document.querySelector('#birth-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+        if (target === "holiday-refresh") {
+            holiday(data);
+            var refreshIcon = document.querySelector('#holiday-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+        if (target === "event-refresh") {
+            events(data);
+            var refreshIcon = document.querySelector('#event-refresh')
+            refreshIcon.setAttribute('class', 'refresh-start refresh')
+            setTimeout(function () {
+                refreshIcon.addEventListener("animationiteration", function () {
+                    refreshIcon.setAttribute("class", "refresh")
+                    refreshIcon.removeEventListener("animationiteration")
+                });
+            }, 100)
+        }
+    })
 }
 //DAILY DEATH
 function dailyDeath(data) {
@@ -155,7 +158,7 @@ function dailyDeath(data) {
     var yearOfDeceased = accessDeath.year;
     var descriptionOfDeceased = accessDeath.pages[0].extract;
     var linkOfDeceased = accessDeath.pages[0].content_urls.desktop.page;
-    
+
     var deathBox = document.querySelector('#death-box')
 
     // div element to hold died on this day data
@@ -167,8 +170,8 @@ function dailyDeath(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','death-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'death-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -248,8 +251,8 @@ function dailyBirth(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','birth-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'birth-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -317,7 +320,7 @@ function holiday(data) {
     var nameOfHoliday = accessHoliday.text;
     var descriptionOfHoliday = accessHoliday.pages[0].extract;
     var linkOfHoliday = accessHoliday.pages[0].content_urls.desktop.page;
-    
+
     var holidayBox = document.querySelector('#holiday-box')
 
     // div for holiday data
@@ -329,8 +332,8 @@ function holiday(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','holiday-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'holiday-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -411,8 +414,8 @@ function events(data) {
     var refresh = document.createElement('a')
     refresh.setAttribute('class', 'refresh-container')
     var refreshImage = document.createElement('img')
-    refreshImage.setAttribute('id','event-refresh')
-    refreshImage.setAttribute('class','refresh')
+    refreshImage.setAttribute('id', 'event-refresh')
+    refreshImage.setAttribute('class', 'refresh')
     refreshImage.src = "Images/refresh.png"
     refresh.append(refreshImage)
     box.append(refresh)
@@ -579,12 +582,12 @@ function displayNYT(data) {
 
 function displayLoad() {
     var waveContainer = document.createElement('div');
-    waveContainer.setAttribute('class','loader');
+    waveContainer.setAttribute('class', 'loader');
     mainContent.prepend(waveContainer);
-    for (i=0; i<10; i++) {
+    for (i = 0; i < 10; i++) {
         var wave = document.createElement('div');
-        wave.setAttribute('class','wave');
-        wave.setAttribute('id',`wave${i}`);
+        wave.setAttribute('class', 'wave');
+        wave.setAttribute('id', `wave${i}`);
         waveContainer.appendChild(wave);
     }
 }
