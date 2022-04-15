@@ -80,8 +80,8 @@ main {
     box-sizing: border-box;
     padding: 20px;
     width: 100%;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 28vh;
+    max-height: 28vh;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -271,6 +271,14 @@ main {
 #wikimedia-cards-second-row {
     margin-top: 3px;
 }
+.book-sec {
+    display: inline-flex;
+    min-height: 28vh;
+    max-height: 28vh;
+    min-width: 45%;
+    max-width: 45%;
+
+}
 
 #book-box {
     display: inline-block;
@@ -278,18 +286,9 @@ main {
     flex-direction: column;
     width: 100%;
     margin-top: 3px;
-    min-height: 40vh;
-    max-height: 40vh;
 }
 
-.book-sec {
-    display: inline-flex;
-    min-height: 40vh;
-    max-height: 40vh;
-    min-width: 45%;
-    max-width: 45%;
 
-}
 
 /* #fic-sec {
 }

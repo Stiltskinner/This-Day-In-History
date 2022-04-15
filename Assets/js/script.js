@@ -502,9 +502,9 @@ function displayNYT(data) {
     var fictionBox = document.createElement('div');
     var nfictionBox = document.createElement('div');
     // Apply classes and IDs to to container elements
-    fictionBox.setAttribute('class', 'book-sec');
+    fictionBox.setAttribute('class', 'book-sec content-card');
     fictionBox.setAttribute('id', 'fic-sec');
-    nfictionBox.setAttribute('class', 'book-sec');
+    nfictionBox.setAttribute('class', 'book-sec content-card');
     nfictionBox.setAttribute('id', 'non-fic-sec');
     // Generate containers for header text
     var fictionHeader = document.createElement('h2');
