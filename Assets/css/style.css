@@ -200,7 +200,7 @@ main {
     background-color: white;
     border-radius: 25px;
     border-color: var(--main-bg-color);
-    color: white;
+    color: black;
     margin: 0;
     height: 2em;
     text-align: center;
