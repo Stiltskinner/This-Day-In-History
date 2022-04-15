@@ -434,13 +434,13 @@ function events(data) {
     // title for event
     var eventTitle = document.createElement('h1')
     eventTitle.setAttribute('class', 'card-title')
-    eventTitle.textContent = "On this day in History:";
+    eventTitle.textContent = "On this day in History: " + yearOfEvent;
     headerDiv.append(eventTitle)
     // year of event
-    var eventYear = document.createElement('h6')
-    eventYear.setAttribute('class', '')
-    eventYear.textContent = yearOfEvent;
-    headerDiv.append(eventYear)
+    // var eventYear = document.createElement('h6')
+    // eventYear.setAttribute('class', 'event-year')
+    // eventYear.textContent = yearOfEvent;
+    // headerDiv.append(eventYear)
     // name of event
     var name = document.createElement('h2')
     name.setAttribute('class', 'card-header')
@@ -560,11 +560,11 @@ function displayNYT(data) {
     // Fill each data element with appropriate data
     fictionBoxTitle.textContent = fictionTitle;
     fictionBoxAuthor.textContent = fictionAuthor;
-    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `" target="_blank">Amazon Store Page</a>`
+    fictionBoxURL.innerHTML = `<a href="` + fictionURL + `" class="waves-effect waves-light btn" target="_blank">Amazon Store Page</a>`
     fictionBoxDescription.textContent = fictionDescription;
     nfictionBoxTitle.textContent = nfictionTitle;
     nfictionBoxAuthor.textContent = nfictionAuthor;
-    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `" target="_blank">Amazon Store Page</a>`;
+    nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `" class="waves-effect waves-light btn" target="_blank">Amazon Store Page</a>`;
     nfictionBoxDescription.textContent = nfictionDescription;
     // Append fiction and nfiction headers to parent containers
     fictionBox.appendChild(fictionHeader);
