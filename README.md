@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Stiltskinner/This-Day-In-History">
-    <img src="https://raw.githubusercontent.com/Stiltskinner/This-Day-In-History/main/Images/onthisday_black.png" alt="Logo" height="100">
+    <img src="https://github.com/Stiltskinner/This-Day-In-History/blob/main/Images/onthisday_black.PNG" alt="Logo" height="100">
   </a>
 
 <h3 align="center">This Day In History</h3>
