@@ -11,9 +11,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+<p>
   <a href="https://github.com/Stiltskinner/This-Day-In-History">
     <img src="./Images/onthisday_black.png" alt="Logo" height="100">
   </a>
+</p>
 
 <h3 align="center">This Day In History</h3>
 
