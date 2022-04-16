@@ -562,12 +562,12 @@ function displayNYT(data) {
     fictionImgElement.alt = "Cover art for " + fictionTitle;
     nfictionImgElement.alt = "Cover art for " + nfictionTitle;
     // Fill each data element with appropriate data
-    fictionBoxTitle.textContent = fictionTitle;
-    fictionBoxAuthor.textContent = fictionAuthor;
+    fictionBoxTitle.textContent = "Title: " + fictionTitle;
+    fictionBoxAuthor.textContent = "Author: " + fictionAuthor;
     fictionBoxURL.innerHTML = `<a href="` + fictionURL + `" class="waves-effect waves-light btn" target="_blank">Amazon Store Page</a>`
     fictionBoxDescription.textContent = fictionDescription;
-    nfictionBoxTitle.textContent = nfictionTitle;
-    nfictionBoxAuthor.textContent = nfictionAuthor;
+    nfictionBoxTitle.textContent = "Title: " + nfictionTitle;
+    nfictionBoxAuthor.textContent = "Author: " + nfictionAuthor;
     nfictionBoxURL.innerHTML = `<a href="` + nfictionURL + `" class="waves-effect waves-light btn" target="_blank">Amazon Store Page</a>`;
     nfictionBoxDescription.textContent = nfictionDescription;
     // Append fiction and nfiction headers to parent containers
