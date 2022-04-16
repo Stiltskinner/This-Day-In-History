@@ -507,4 +507,7 @@ main {
         .content-row {
             flex-direction: column;
         }
+        #page-title h1 {
+            font-size: 125%;
+        }
     }
