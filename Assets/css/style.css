@@ -46,6 +46,9 @@ main {
 }
 
 /* Sets up consistent styling between different boxes */
+.row {
+    flex-direction: row;
+}
 
 .content-card-borders {
     border-style: solid;
@@ -355,6 +358,12 @@ main {
     align-items: flex-start;
     width: 100%;
     margin-top: 1.5em;
+}
+
+.book-text-container {
+    display: flex;
+    width: 35%;
+    flex-direction: column;
 }
 
 .book-header {

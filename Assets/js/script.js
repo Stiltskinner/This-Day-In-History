@@ -510,7 +510,18 @@ function displayNYT(data) {
     // Fill header elements with text
     fictionHeader.textContent = "NYT #1 Bestselling Fiction Book";
     nfictionHeader.textContent = "NYT #1 Bestselling Non-Fiction Book";
+    // Generate parent container for 2 children containers, 1 with title author and desc as children and 1 with img
+    var fictionBoxJr = document.createElement('div');
+    var nfictionBoxJr = document.createElement('div');
+    // Set appropriate class to jr boxes
+    fictionBoxJr.setAttribute('class','row');
+    nfictionBoxJr.setAttribute('class','row');
     // Generate containers for Title, Author, and Description
+    var fbookTextContainer = document.createElement('div');
+    var nfbookTextContainer = document.createElement('div');
+    // Give bcontainers appropriate class
+    fbookTextContainer.setAttribute('class','book-text-container')
+    nfbookTextContainer.setAttribute('class','book-text-container')
     // Generate containers for each data point
     var fictionBoxTitle = document.createElement('p');
     var fictionBoxAuthor = document.createElement('p');
@@ -523,10 +534,9 @@ function displayNYT(data) {
     var nfictionBoxDescription = document.createElement('p');
     var nfictionBoxURL = document.createElement('div');
     // Generate img elements for fiction and n fiction images
-    var fictionImgContainer = document.createElement('img');
-    var nfictionImgContainer = document.createElement('img');
+    var fictionImgElement = document.createElement('img');
+    var nfictionImgElement = document.createElement('img');
     // Set classes and IDs for data elements
-    fictionBoxTitle.setAttribute('class', 'card-header');
     fictionBoxAuthor.setAttribute('class', 'book-author'); 
     fictionBoxImage.setAttribute('class', 'book-pic');
     fictionBoxDescription.setAttribute('class', 'book-text');
@@ -536,7 +546,6 @@ function displayNYT(data) {
     fictionBoxImage.setAttribute('id', 'fic-pic');
     fictionBoxDescription.setAttribute('id', 'fic-text');
     fictionBoxURL.setAttribute('id', 'fic-url');
-    nfictionBoxTitle.setAttribute('class', 'card-header');
     nfictionBoxAuthor.setAttribute('class', 'book-author');
     nfictionBoxImage.setAttribute('class', 'book-pic');
     nfictionBoxDescription.setAttribute('class', 'book-text');
@@ -546,12 +555,12 @@ function displayNYT(data) {
     nfictionBoxImage.setAttribute('id', 'non-fic-pic');
     nfictionBoxDescription.setAttribute('id', 'non-fic-text');
     nfictionBoxURL.setAttribute('id', 'non-fic-url');
-    // Fill img containers with img src
-    fictionImgContainer.src = fictionImage;
-    nfictionImgContainer.src = nfictionImage;
+    // Fill img Elements with img src
+    fictionImgElement.src = fictionImage;
+    nfictionImgElement.src = nfictionImage;
     // Add alt text to images
-    fictionImgContainer.alt = "Cover art for " + fictionTitle;
-    nfictionImgContainer.alt = "Cover art for " + nfictionTitle;
+    fictionImgElement.alt = "Cover art for " + fictionTitle;
+    nfictionImgElement.alt = "Cover art for " + nfictionTitle;
     // Fill each data element with appropriate data
     fictionBoxTitle.textContent = fictionTitle;
     fictionBoxAuthor.textContent = fictionAuthor;
@@ -564,19 +573,25 @@ function displayNYT(data) {
     // Append fiction and nfiction headers to parent containers
     fictionBox.appendChild(fictionHeader);
     nfictionBox.appendChild(nfictionHeader);
-    // Append img containers to containers
-    fictionBoxImage.appendChild(fictionImgContainer);
-    nfictionBoxImage.appendChild(nfictionImgContainer);
+    // Append jr containers to parent boxes
+    fictionBox.appendChild(fictionBoxJr);
+    nfictionBox.appendChild(nfictionBoxJr);
+    // Append img containers and booktextcontainers to jr containers
+    fictionBoxJr.appendChild(fictionBoxImage);
+    fictionBoxJr.appendChild(fbookTextContainer);
+    nfictionBoxJr.appendChild(nfictionBoxImage);
+    nfictionBoxJr.appendChild(nfbookTextContainer);
+    // Append img to img containers
+    fictionBoxImage.appendChild(fictionImgElement);
+    nfictionBoxImage.appendChild(nfictionImgElement);
     // Append data-containing elements to parent containers
-    fictionBox.appendChild(fictionBoxImage);
-    fictionBox.appendChild(fictionBoxTitle);
-    fictionBox.appendChild(fictionBoxAuthor);
-    fictionBox.appendChild(fictionBoxDescription);
+    fbookTextContainer.appendChild(fictionBoxTitle);
+    fbookTextContainer.appendChild(fictionBoxAuthor);
+    fbookTextContainer.appendChild(fictionBoxDescription);
     fictionBox.appendChild(fictionBoxURL);
-    nfictionBox.appendChild(nfictionBoxImage);
-    nfictionBox.appendChild(nfictionBoxTitle);
-    nfictionBox.appendChild(nfictionBoxAuthor);
-    nfictionBox.appendChild(nfictionBoxDescription);
+    nfbookTextContainer.appendChild(nfictionBoxTitle);
+    nfbookTextContainer.appendChild(nfictionBoxAuthor);
+    nfbookTextContainer.appendChild(nfictionBoxDescription);
     nfictionBox.appendChild(nfictionBoxURL);
     // Append fiction and nfiction containers to parent container
     bookBox.appendChild(fictionBox);
