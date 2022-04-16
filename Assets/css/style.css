@@ -72,7 +72,7 @@ main {
 .content-card {
     display: inline-block;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 35px;
     width: 100%;
     min-height: 28vh;
     max-height: 28vh;
@@ -401,8 +401,8 @@ main {
 }
 
 .refresh-container {
-    margin-top: -20px;
-    margin-left: -22px;
+    margin-top: -30px;
+    margin-left: -30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
