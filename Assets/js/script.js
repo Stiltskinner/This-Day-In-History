@@ -514,8 +514,8 @@ function displayNYT(data) {
     var fictionBoxJr = document.createElement('div');
     var nfictionBoxJr = document.createElement('div');
     // Set appropriate class to jr boxes
-    fictionBoxJr.setAttribute('class','row');
-    nfictionBoxJr.setAttribute('class','row');
+    fictionBoxJr.setAttribute('class','box-jr');
+    nfictionBoxJr.setAttribute('class','box-jr');
     // Generate containers for Title, Author, and Description
     var fbookTextContainer = document.createElement('div');
     var nfbookTextContainer = document.createElement('div');
