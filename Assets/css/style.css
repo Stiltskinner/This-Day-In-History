@@ -38,6 +38,7 @@ main {
 
 #page-title {
     display: flex;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: space-evenly;
     width: 95vw;
@@ -192,15 +193,15 @@ main {
 
 #date-picker-form {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px;
     border-radius: 25px;
     border-color: white;
     border-width: 5px;
     color: var(--card-bg-color);
     width: fit-content;
-    margin-right: 20px;
 }
 
 #date-picker {
@@ -208,17 +209,13 @@ main {
     border-radius: 25px;
     border-color: var(--main-bg-color);
     color: black;
-    margin: 0 10px 0 0;
-    height: 2em;
-    width: 8em;
     text-align: center;
+    height: 2em;
 }
 
 #date-picker-form button {
     border-radius: 15px;
-       width: 44%;
     color: white;
-    vertical-align: middle;
 }
 
 /* FOR THE DATE PICKER PLACEHOLDER TEXT */
