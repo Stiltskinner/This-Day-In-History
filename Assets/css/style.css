@@ -255,58 +255,6 @@ main {
     margin-top: 10px;
 }
 
-.book-sec {
-    display: inline-flex;
-    min-height: 28vh;
-    max-height: 28vh;
-    min-width: 45%;
-    max-width: 45%;
-
-}
-
-#book-box {
-    display: inline-block;
-    box-sizing: border-box;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 3px;
-}
-
-
-
-/* #fic-sec {
-}
-
-#non-fic-sec {
-    min-width: 45%;
-    max-width: 45%;
-}
- */
-.book-header {
-    width: 35%;
-}
-
-.book-author {
-
-}
-
-.book-pic img {
-    display: flex;
-    min-width: 15%;
-    min-height: 25%;
-    max-width: 15%;
-    max-height: 25%;
-}
-
-.book-text {
-    overflow: scroll;
-    width: 100%;
-}
-
-.book-url {
-
-}
-
 #event-box .both-headers {
     width: 100%;
     display: block;
@@ -398,6 +346,49 @@ main {
 
 #event-box .box-text {
     
+}
+
+#book-box {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1.5em;
+}
+
+.book-header {
+    width: 100%;
+}
+
+.book-author {
+    width: 100%;
+}
+
+.book-pic img {
+    display: flex;
+    width: 30%;
+    margin: 1em;
+}
+
+.book-text {
+    width: 100%;
+}
+
+.book-url {
+    width: 100%;
+    margin: 2em;
+    border-bottom:2em;
+}
+
+#fic-sec {
+    flex-direction:column;
+    width:45%;
+}
+
+#non-fic-sec {
+    flex-direction: column;
+    width:45%;
 }
 
 .refresh-container {

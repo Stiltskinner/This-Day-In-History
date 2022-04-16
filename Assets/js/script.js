@@ -480,12 +480,6 @@ function events(data) {
 }
 
 function displayNYT(data) {
-    // var ifFictionBox = document.querySelector('#fic-sec');
-    // var ifNFictionBox = document.querySelector('#non-fic-sec');
-    // if (ifFictionBox) {
-    //     ifFictionBox.remove();
-    //     ifNFictionBox.remove();
-    // }
     // Desired data for bestelling combined ebook and print fiction
     var fictionTitle = data.results.lists[0].books[0].title;
     var fictionAuthor = data.results.lists[0].books[0].author;
@@ -502,13 +496,13 @@ function displayNYT(data) {
     var fictionBox = document.createElement('div');
     var nfictionBox = document.createElement('div');
     // Apply classes and IDs to to container elements
-    fictionBox.setAttribute('class', 'book-sec content-card');
+    fictionBox.setAttribute('class', 'book-sec');
     fictionBox.setAttribute('id', 'fic-sec');
-    nfictionBox.setAttribute('class', 'book-sec content-card');
+    nfictionBox.setAttribute('class', 'book-sec');
     nfictionBox.setAttribute('id', 'non-fic-sec');
     // Generate containers for header text
-    var fictionHeader = document.createElement('h2');
-    var nfictionHeader = document.createElement('h2');
+    var fictionHeader = document.createElement('h4');
+    var nfictionHeader = document.createElement('h4');
     // Set classes and IDs for header elements
     // book-header class needs to be defined in CSS
     fictionHeader.setAttribute('class', 'book-header');
@@ -516,14 +510,15 @@ function displayNYT(data) {
     // Fill header elements with text
     fictionHeader.textContent = "NYT #1 Bestselling Fiction Book";
     nfictionHeader.textContent = "NYT #1 Bestselling Non-Fiction Book";
+    // Generate containers for Title, Author, and Description
     // Generate containers for each data point
-    var fictionBoxTitle = document.createElement('h3');
-    var fictionBoxAuthor = document.createElement('h4');
+    var fictionBoxTitle = document.createElement('p');
+    var fictionBoxAuthor = document.createElement('p');
     var fictionBoxImage = document.createElement('div');
     var fictionBoxDescription = document.createElement('p');
     var fictionBoxURL = document.createElement('div');
-    var nfictionBoxTitle = document.createElement('h3');
-    var nfictionBoxAuthor = document.createElement('h4');
+    var nfictionBoxTitle = document.createElement('p');
+    var nfictionBoxAuthor = document.createElement('p');
     var nfictionBoxImage = document.createElement('div');
     var nfictionBoxDescription = document.createElement('p');
     var nfictionBoxURL = document.createElement('div');
@@ -532,20 +527,20 @@ function displayNYT(data) {
     var nfictionImgContainer = document.createElement('img');
     // Set classes and IDs for data elements
     fictionBoxTitle.setAttribute('class', 'card-header');
-    fictionBoxAuthor.setAttribute('class', 'book-author'); //class book-author needs to be defined in CSS
+    fictionBoxAuthor.setAttribute('class', 'book-author'); 
     fictionBoxImage.setAttribute('class', 'book-pic');
     fictionBoxDescription.setAttribute('class', 'book-text');
-    fictionBoxURL.setAttribute('class', 'book-url'); //class book-url needs to be defined in CSS
+    fictionBoxURL.setAttribute('class', 'book-url');
     fictionBoxTitle.setAttribute('id', 'fic-title');
     fictionBoxAuthor.setAttribute('id', 'fic-author');
     fictionBoxImage.setAttribute('id', 'fic-pic');
     fictionBoxDescription.setAttribute('id', 'fic-text');
     fictionBoxURL.setAttribute('id', 'fic-url');
     nfictionBoxTitle.setAttribute('class', 'card-header');
-    nfictionBoxAuthor.setAttribute('class', 'book-author'); //class book-author needs to be defined in CSS
+    nfictionBoxAuthor.setAttribute('class', 'book-author');
     nfictionBoxImage.setAttribute('class', 'book-pic');
     nfictionBoxDescription.setAttribute('class', 'book-text');
-    nfictionBoxURL.setAttribute('class', 'book-url'); //class book-url needs to be defined in CSS
+    nfictionBoxURL.setAttribute('class', 'book-url'); 
     nfictionBoxTitle.setAttribute('id', 'non-fic-title');
     nfictionBoxAuthor.setAttribute('id', 'non-fic-author');
     nfictionBoxImage.setAttribute('id', 'non-fic-pic');
