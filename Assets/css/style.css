@@ -158,6 +158,14 @@ main {
     border-color: white;
 }
 
+#event-content .box-img > img {
+    max-height: none;
+}
+
+#holiday-content .box-img > img {
+    max-height: none;
+}
+
 .both-headers {
     display: flex;
     width: 100%;
