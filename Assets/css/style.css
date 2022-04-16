@@ -26,6 +26,9 @@ body {
     background-position: center;
 }
 
+header {
+    margin-bottom: 7px;
+}
 
 main {
     width: 95vw;
@@ -161,6 +164,7 @@ main {
     max-height: 250px;
     border-style: none;
     object-fit:contain;
+    max-width: 100%;
 }
 
 #event-content .box-img > img {
@@ -263,7 +267,7 @@ main {
 
 .wikimedia-cards {
     display: flex;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 #event-box .both-headers {
@@ -365,7 +369,7 @@ main {
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
-    margin-top: 1.5em;
+    /* margin-top: 1.5em; */
 }
 
 .book-text-container {
