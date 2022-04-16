@@ -53,7 +53,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![This Day in History Screen Shot][product-screenshot]](https://stiltskinner.github.io/This-Day-In-History/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,4 +130,4 @@ Project Link: [https://github.com/Stiltskinner/This-Day-In-History](https://gith
 [issues-url]: https://github.com/Stiltskinner/This-Day-In-History/issues
 [license-shield]: https://img.shields.io/github/license/Stiltskinner/This-Day-In-History.svg?style=for-the-badge
 [license-url]: https://github.com/Stiltskinner/This-Day-In-History/blob/master/LICENSE.txt
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://github.com/Stiltskinner/This-Day-In-History/blob/main/Images/onthisday_black.PNG

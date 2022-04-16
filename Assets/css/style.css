@@ -357,14 +357,6 @@ main {
     width: 25%;
 }
 
-#holiday-box .box-text {
-    
-}
-
-#event-box .box-text {
-    
-}
-
 #book-box {
     display: flex;
     box-sizing: border-box;
