@@ -130,4 +130,4 @@ Project Link: [https://github.com/Stiltskinner/This-Day-In-History](https://gith
 [issues-url]: https://github.com/Stiltskinner/This-Day-In-History/issues
 [license-shield]: https://img.shields.io/github/license/Stiltskinner/This-Day-In-History.svg?style=for-the-badge
 [license-url]: https://github.com/Stiltskinner/This-Day-In-History/blob/master/LICENSE.txt
-[product-screenshot]: https://github.com/Stiltskinner/This-Day-In-History/blob/main/Images/onthisday_black.PNG
+[product-screenshot]: https://github.com/Stiltskinner/This-Day-In-History/blob/main/Images/This%20Day%20in%20History%20Demo.gif
