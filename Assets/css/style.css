@@ -54,6 +54,11 @@ main {
     flex-direction: row;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
 .content-card-borders {
     border-style: solid;
     background-color: #2A3245;
@@ -366,13 +371,19 @@ main {
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
-    /* margin-top: 1.5em; */
+}
+
+.box-jr {
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-start;
 }
 
 .book-text-container {
     display: flex;
-    width: 35%;
+    width: 70%;
     flex-direction: column;
+    margin:0;
 }
 
 .book-header {
@@ -380,16 +391,25 @@ main {
 }
 
 .book-author {
+    display: flex;
     width: 100%;
+}
+
+.book-pic {
+    display:flex;
+    width:30%;
+    margin: 4px;
+    margin-right: 12px;
 }
 
 .book-pic img {
     display: flex;
-    width: 30%;
-    margin: 1em;
+    width: 100%;
+    margin: 0;
 }
 
 .book-text {
+    display: flex;
     width: 100%;
 }
 
