@@ -525,4 +525,16 @@ main {
         #page-title h1 {
             font-size: 125%;
         }
+        .box-jr {
+            display:inline-block;
+            flex-direction: row;
+        }
+        .book-pic {
+            width:100%;
+            object-fit: contain;
+        }
+        .book-pic img{
+            width:100%;
+            object-fit: contain;
+        }
     }
