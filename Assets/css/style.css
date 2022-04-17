@@ -66,6 +66,7 @@ main {
     border-color: #822B34;
     border-width: 12px;
     color: white;
+    margin:5px;
 }
 
 .content-row {
@@ -81,13 +82,14 @@ main {
 .content-card {
     display: inline-block;
     box-sizing: border-box;
-    padding: 35px;
+    padding: 3em;
     width: 100%;
-    min-height: 28vh;
-    max-height: 28vh;
+    min-height: 30vh;
+    max-height: 30vh;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    margin: 5px;
 }
 
 .content-card::-webkit-scrollbar {
@@ -245,31 +247,31 @@ main {
 
 #birth-box {
     margin-right: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 #death-box{
     margin-left: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 #holiday-box {
     margin-left: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 #event-box {
     margin-right: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 .wikimedia-cards {
     display: flex;
-    /* margin-top: 10px; */
+    margin-top: 10px;
 }
 
 #event-box .both-headers {
@@ -555,3 +557,23 @@ main {
         width: 100%;
     }
 }
+    @media screen and (max-width:920px) {
+        .content-row {
+            flex-direction: column;
+        }
+        #page-title h1 {
+            font-size: 125%;
+        }
+        .box-jr {
+            display:inline-block;
+            flex-direction: row;
+        }
+        .book-pic {
+            width:100%;
+            object-fit: contain;
+        }
+        .book-pic img{
+            width:100%;
+            object-fit: contain;
+        }
+    }
