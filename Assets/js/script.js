@@ -634,3 +634,4 @@ init();
 // Fires when the user submits the date picker
 datePickerForm.addEventListener("submit", dateSubmitHandler);
 
+

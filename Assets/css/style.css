@@ -66,6 +66,7 @@ main {
     border-color: #822B34;
     border-width: 12px;
     color: white;
+    margin:5px;
 }
 
 .content-row {
@@ -83,11 +84,12 @@ main {
     box-sizing: border-box;
     padding: 35px;
     width: 100%;
-    min-height: 28vh;
-    max-height: 28vh;
+    min-height: 35vh;
+    max-height: 35vh;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    margin: 5px;
 }
 
 .content-card::-webkit-scrollbar {
@@ -245,31 +247,31 @@ main {
 
 #birth-box {
     margin-right: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 #death-box{
     margin-left: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 #holiday-box {
     margin-left: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 #event-box {
     margin-right: 5px;
-    width: 99%;
+    width: 97%;
     box-sizing: border-box;
 }
 
 .wikimedia-cards {
     display: flex;
-    /* margin-top: 10px; */
+    margin-top: 10px;
 }
 
 #event-box .both-headers {
