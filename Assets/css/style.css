@@ -64,7 +64,6 @@ main {
     border-color: #822B34;
     border-width: 12px;
     color: white;
-    margin:5px;
 }
 
 .content-row {
@@ -243,32 +242,32 @@ main {
 
 
 #birth-box {
-    margin-right: 5px;
+    /* margin-right: 5px; */
     width: 97%;
     box-sizing: border-box;
 }
 
 #death-box{
-    margin-left: 5px;
+    /* margin-left: 5px; */
     width: 97%;
     box-sizing: border-box;
 }
 
 #holiday-box {
-    margin-left: 5px;
+    /* margin-left: 5px; */
     width: 97%;
     box-sizing: border-box;
 }
 
 #event-box {
-    margin-right: 5px;
+    /* margin-right: 5px; */
     width: 97%;
     box-sizing: border-box;
 }
 
 .wikimedia-cards {
     display: flex;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 #event-box .both-headers {
@@ -361,7 +360,8 @@ main {
     box-sizing: border-box;
     flex-direction: row;
     align-items: flex-start;
-    width: 100%;
+    width: 90%;
+    padding: 2em;
 }
 
 .box-jr {
@@ -421,8 +421,8 @@ main {
 }
 
 .refresh-container {
-    margin-top: -30px;
-    margin-left: -30px;
+    margin-top: -35px;
+    margin-left: -35px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -524,10 +524,8 @@ main {
     .content-row {
         flex-direction: column;
         justify-content: center;
-        margin: 0 auto;
-    }
-    #page-title h1 {
-        font-size: 125%;
+        align-items: center;
+        margin: 0;
     }
     header img {
         width: 100%;
@@ -535,6 +533,7 @@ main {
 
     .content-card {
         width: 100%;
+        margin: 0;
     }
 
     #date-picker {
@@ -542,17 +541,13 @@ main {
         justify-content: center;
     }
 
-    #page-title {
-        margin: 0 auto;
-        width: 98%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
     header {
         width: 100%;
     }
+    /* .refresh-container {
+        margin-top: -10px;
+        margin-left: -10px;
+    } */
 }
     @media screen and (max-width:920px) {
         .content-row {
@@ -565,6 +560,9 @@ main {
             display:inline-block;
             flex-direction: row;
         }
+        #book-box {
+            margin-right: 5px;
+        }
         .book-pic {
             width:100%;
             object-fit: contain;
@@ -574,7 +572,7 @@ main {
             object-fit: contain;
         }
         .content-card {
-            padding:1em;
+            padding-left:3em;
         }
         #fic-sec {
             margin-right:12px;
