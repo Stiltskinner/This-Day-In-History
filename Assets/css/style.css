@@ -576,4 +576,10 @@ main {
             width:100%;
             object-fit: contain;
         }
+        .content-card {
+            padding:1em;
+        }
+        #fic-sec {
+            margin-right:12px;
+        }
     }
