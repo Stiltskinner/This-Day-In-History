@@ -601,6 +601,7 @@ function displayNYT(data) {
 // Function to show loading bar when date is input
 
 function displayLoad() {
+    removeLoad();
     var waveContainer = document.createElement('div');
     waveContainer.setAttribute('class', 'loader');
     mainContent.prepend(waveContainer);
