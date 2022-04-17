@@ -38,15 +38,13 @@ main {
 
 #page-title {
     display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    justify-content: space-evenly;
-    width: 95vw;
-    margin: 0 -14px
+    width: 50vw;
 }
-#page-title h1 {
-    width: 100%;
-    margin:10px 25px;
+#page-title img {
+    width: 250px;
+    flex: 1 1 200px;
+    max-height: 200px;
+    object-fit: contain;
 }
 
 /* Sets up consistent styling between different boxes */
@@ -203,7 +201,6 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
     border-radius: 25px;
     border-color: white;
     border-width: 5px;
@@ -522,8 +519,8 @@ main {
         .content-row {
             flex-direction: column;
         }
-        #page-title h1 {
-            font-size: 125%;
+        #page-title {
+            width: 95vw;
         }
         .box-jr {
             display:inline-block;
