@@ -102,7 +102,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 2. William Wong - billycwong19@gmail.com
 3. Garrett Sanders - gjsanders.89@gmail.com
 
-Project Link: [https://github.com/Stiltskinner/This-Day-In-History](https://github.com/Stiltskinner/This-Day-In-History)
+Project Link: [https://github.com/Stiltskinner/This-Day-In-History](https://stiltskinner.github.io/This-Day-In-History/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
